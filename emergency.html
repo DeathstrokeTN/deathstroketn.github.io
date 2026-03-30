@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency - CareSupport</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: #fff5f5;">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="fs-4">💙 CareSupport</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav_home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="conditions.html" data-i18n="nav_conditions">Conditions</a></li>
+          <li class="nav-item"><a class="nav-link" href="guide.html" data-i18n="nav_guide">Caregiver Guide</a></li>
+          <li class="nav-item"><a class="nav-link" href="community.html" data-i18n="nav_community">Community</a></li>
+          <li class="nav-item"><a class="nav-link active text-danger fw-bold" href="emergency.html" data-i18n="nav_emergency">🚨 Emergency</a></li>
+          <li class="nav-item"><a class="nav-link" href="self-test.html" data-i18n="nav_test">Self-Test</a></li>
+          <li class="nav-item dropdown ms-lg-3 mt-2 mt-lg-0">
+            <a class="nav-link dropdown-toggle btn btn-outline-secondary btn-sm px-3" href="#" role="button" data-bs-toggle="dropdown" data-i18n="nav_language">
+              🌐 Language
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
+              <li><a class="dropdown-item lang-switch" href="#" data-lang="en">English</a></li>
+              <li><a class="dropdown-item lang-switch" href="#" data-lang="fr">Français</a></li>
+              <li><a class="dropdown-item lang-switch" href="#" data-lang="ar">العربية</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+    
+    <div class="row text-center mb-5 align-items-center">
+      <div class="col-lg-7 text-lg-start">
+        <h1 class="display-5 fw-bold text-danger" data-i18n="emerg_title">🚨 Emergency Guidance</h1>
+        <p class="lead mt-3 text-dark" data-i18n="emerg_subtitle">Know exactly when to stop managing at home and seek immediate medical or psychiatric help.</p>
+      </div>
+      <div class="col-lg-5 mt-4 mt-lg-0">
+        <img src="https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d?auto=format&fit=crop&q=80&w=600" alt="Ambulance" class="img-fluid rounded-4 shadow-sm" style="max-height: 200px; object-fit: cover;">
+      </div>
+    </div>
+
+    <div class="row g-4">
+      
+      <!-- Warning Signs (Mental Health) -->
+      <div class="col-lg-6">
+        <div class="card border-0 shadow-sm h-100" style="border-top: 5px solid var(--danger) !important;">
+          <div class="card-body p-4">
+            <h3 class="card-title fw-bold mb-4 d-flex align-items-center" data-i18n="emerg_psych_title">
+              <span class="bg-danger text-white rounded-circle d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px;">1</span> 
+              Psychiatric Emergency
+            </h3>
+            <p class="text-muted fw-bold" data-i18n="emerg_psych_desc">Go to the hospital or call emergency services immediately if the patient:</p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item bg-transparent" data-i18n="emerg_psych_1">❗ Threatens to harm themselves (suicidal statements or actions).</li>
+              <li class="list-group-item bg-transparent" data-i18n="emerg_psych_2">❗ Threatens to physically harm you or someone else.</li>
+              <li class="list-group-item bg-transparent" data-i18n="emerg_psych_3">❗ Is experiencing severe hallucinations (seeing or hearing things that aren't there and acting on them).</li>
+              <li class="list-group-item bg-transparent" data-i18n="emerg_psych_4">❗ Completely stops eating or drinking for multiple days.</li>
+              <li class="list-group-item bg-transparent" data-i18n="emerg_psych_5">❗ Is completely unresponsive but breathing.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warning Signs (Medical / Stroke) -->
+      <div class="col-lg-6">
+        <div class="card border-0 shadow-sm h-100" style="border-top: 5px solid #d97706 !important;">
+          <div class="card-body p-4">
+            <h3 class="card-title fw-bold mb-4 d-flex align-items-center" data-i18n="emerg_med_title">
+              <span class="bg-warning text-white rounded-circle d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px;">2</span> 
+              Medical Emergency (Post-Stroke)
+            </h3>
+            <p class="text-muted fw-bold" data-i18n="emerg_med_desc">Call an ambulance (do not drive them yourself) if you notice:</p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item bg-transparent" data-i18n="emerg_med_1">⚡ <strong>F</strong>ace drooping on one side again.</li>
+              <li class="list-group-item bg-transparent" data-i18n="emerg_med_2">⚡ <strong>A</strong>rm weakness (cannot raise both arms).</li>
+              <li class="list-group-item bg-transparent" data-i18n="emerg_med_3">⚡ <strong>S</strong>peech difficulty (sudden slurring or inability to speak).</li>
+              <li class="list-group-item bg-transparent" data-i18n="emerg_med_4">⚡ Sudden, severe headache with no known cause.</li>
+              <li class="list-group-item bg-transparent" data-i18n="emerg_med_5">⚡ Sudden loss of balance or coordination, or a severe fall.</li>
+            </ul>
+            <p class="mt-3 text-muted small" data-i18n="emerg_med_note"><strong>Note:</strong> Time is critical in stroke events. (Think F.A.S.T. - Face, Arms, Speech, Time).</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Contact Box -->
+    <div class="row mt-5">
+      <div class="col-12 col-lg-8 mx-auto">
+        <div class="alert alert-danger shadow p-5 border-0 text-center rounded-4">
+          <h4 class="fw-bold mb-3" data-i18n="emerg_contact_title">Important Contacts to Have Ready</h4>
+          <p class="mb-4 text-dark" data-i18n="emerg_contact_desc">Write these numbers down and keep them on your fridge or save them in your phone favorites.</p>
+          
+          <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+             <div class="bg-white text-danger px-4 py-3 rounded-3 fw-bold shadow-sm d-flex align-items-center" data-i18n="emerg_contact_1">
+               <span class="fs-4 me-2">🚑</span> Ambulance: [Local Number]
+             </div>
+             <div class="bg-white text-danger px-4 py-3 rounded-3 fw-bold shadow-sm d-flex align-items-center" data-i18n="emerg_contact_2">
+               <span class="fs-4 me-2">🏥</span> Nearest Hospital: [Number]
+             </div>
+             <div class="bg-white text-danger px-4 py-3 rounded-3 fw-bold shadow-sm d-flex align-items-center" data-i18n="emerg_contact_3">
+               <span class="fs-4 me-2">🧑‍⚕️</span> Patient's Doctor: [Number]
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="translations.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

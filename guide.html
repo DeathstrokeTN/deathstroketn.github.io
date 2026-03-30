@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caregiver Guide - CareSupport</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="fs-4">💙 CareSupport</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav_home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="conditions.html" data-i18n="nav_conditions">Conditions</a></li>
+          <li class="nav-item"><a class="nav-link active" href="guide.html" data-i18n="nav_guide">Caregiver Guide</a></li>
+          <li class="nav-item"><a class="nav-link" href="community.html" data-i18n="nav_community">Community</a></li>
+          <li class="nav-item"><a class="nav-link text-danger fw-bold" href="emergency.html" data-i18n="nav_emergency">🚨 Emergency</a></li>
+          <li class="nav-item"><a class="nav-link" href="self-test.html" data-i18n="nav_test">Self-Test</a></li>
+          <li class="nav-item dropdown ms-lg-3 mt-2 mt-lg-0">
+            <a class="nav-link dropdown-toggle btn btn-outline-secondary btn-sm px-3" href="#" role="button" data-bs-toggle="dropdown" data-i18n="nav_language">
+              🌐 Language
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
+              <li><a class="dropdown-item lang-switch" href="#" data-lang="en">English</a></li>
+              <li><a class="dropdown-item lang-switch" href="#" data-lang="fr">Français</a></li>
+              <li><a class="dropdown-item lang-switch" href="#" data-lang="ar">العربية</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="bg-light py-5 mb-5 border-bottom">
+    <div class="container text-center">
+      <h1 class="fw-bold" style="color: var(--primary-color)" data-i18n="guide_title">Caregiver Guide: What should I do?</h1>
+      <p class="lead text-muted" data-i18n="guide_subtitle">Practical, actionable advice for difficult situations.</p>
+      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb046ebf?auto=format&fit=crop&q=80&w=800" class="img-fluid rounded-4 mt-4 shadow-sm" style="max-height: 300px; object-fit: cover; width: 100%; max-width: 800px;" alt="Caregiving support">
+    </div>
+  </header>
+
+  <main class="container mb-5">
+    
+    <div class="row mb-4">
+      <div class="col-12 text-center mb-5">
+        <h2 class="section-title" data-i18n="guide_interactive_title">Interactive Problem Solver</h2>
+        <p class="text-muted" data-i18n="guide_interactive_desc">Click on a situation below to see what to do.</p>
+      </div>
+    </div>
+
+    <!-- Interactive Grid -->
+    <div class="row g-4">
+      
+      <!-- Interactive Item 1 -->
+      <div class="col-lg-6">
+        <div class="interactive-box shadow-sm">
+          <h4 class="fw-bold d-flex align-items-center" data-i18n="guide_q1_title">
+            <span class="me-3 fs-3">😠</span> Patient is aggressive or angry
+          </h4>
+          <p class="text-muted mb-0" data-i18n="guide_q1_desc">They are yelling, agitated, or refusing to cooperate.</p>
+          <div class="hidden-advice">
+            <ul class="list-unstyled">
+              <li class="mb-2" data-i18n="guide_q1_a1">✅ <strong>Stay calm:</strong> Do not raise your voice. Your calmness can defuse the situation.</li>
+              <li class="mb-2" data-i18n="guide_q1_a2">✅ <strong>Step back:</strong> Make sure you are at a safe distance. Give them physical space.</li>
+              <li class="mb-2" data-i18n="guide_q1_a3">✅ <strong>Acknowledge feelings:</strong> "I see you are very upset right now."</li>
+              <li class="mb-2" data-i18n="guide_q1_a4">❌ <strong>Do not argue:</strong> Logic rarely works during an emotional outburst.</li>
+              <li data-i18n="guide_q1_a5">👉 <em>If you feel threatened, leave the room immediately and call for help.</em></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Item 2 -->
+      <div class="col-lg-6">
+        <div class="interactive-box shadow-sm">
+          <h4 class="fw-bold d-flex align-items-center" data-i18n="guide_q2_title">
+            <span class="me-3 fs-3">💊</span> Patient refuses medication
+          </h4>
+          <p class="text-muted mb-0" data-i18n="guide_q2_desc">They spit it out, hide it, or say they don't need it.</p>
+          <div class="hidden-advice">
+            <ul class="list-unstyled">
+              <li class="mb-2" data-i18n="guide_q2_a1">✅ <strong>Find out why:</strong> Ask calmly, "Do these pills make you feel sick?" or "Are they hard to swallow?"</li>
+              <li class="mb-2" data-i18n="guide_q2_a2">✅ <strong>Change the timing:</strong> Try offering it when they are more relaxed, along with a favorite snack or drink.</li>
+              <li class="mb-2" data-i18n="guide_q2_a3">✅ <strong>Give choices:</strong> "Would you like to take your pill with water or juice?"</li>
+              <li class="mb-2" data-i18n="guide_q2_a4">❌ <strong>Do not force:</strong> Never force medicine into their mouth. Report consistent refusal to the doctor.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Item 3 -->
+      <div class="col-lg-6">
+        <div class="interactive-box shadow-sm">
+          <h4 class="fw-bold d-flex align-items-center" data-i18n="guide_q3_title">
+            <span class="me-3 fs-3">😔</span> Patient is completely withdrawn
+          </h4>
+          <p class="text-muted mb-0" data-i18n="guide_q3_desc">They won't get out of bed, speak, or eat.</p>
+          <div class="hidden-advice">
+            <ul class="list-unstyled">
+              <li class="mb-2" data-i18n="guide_q3_a1">✅ <strong>Just be there:</strong> Sit quietly with them. Just your presence is supportive.</li>
+              <li class="mb-2" data-i18n="guide_q3_a2">✅ <strong>Offer small tasks:</strong> "Can you help me fold these two towels?" Set tiny, achievable goals.</li>
+              <li class="mb-2" data-i18n="guide_q3_a3">✅ <strong>Ensure basic needs:</strong> Bring water and small, easy-to-eat snacks to their bedside.</li>
+              <li class="mb-2" data-i18n="guide_q3_a4">❌ <strong>Do not demand cheer:</strong> Don't tell them they "need to get up and do something."</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Item 4 -->
+      <div class="col-lg-6">
+        <div class="interactive-box shadow-sm">
+          <h4 class="fw-bold d-flex align-items-center" data-i18n="guide_q4_title">
+            <span class="me-3 fs-3">🗣️</span> Communication Breakdown (Stroke/Aphasia)
+          </h4>
+          <p class="text-muted mb-0" data-i18n="guide_q4_desc">They are trying to speak but the words don't make sense, creating frustration.</p>
+          <div class="hidden-advice">
+            <ul class="list-unstyled">
+              <li class="mb-2" data-i18n="guide_q4_a1">✅ <strong>Use yes/no questions:</strong> "Are you hungry?" or "Does it hurt?"</li>
+              <li class="mb-2" data-i18n="guide_q4_a2">✅ <strong>Use visual aids:</strong> Point to objects or use a picture board.</li>
+              <li class="mb-2" data-i18n="guide_q4_a3">✅ <strong>Give them time:</strong> Wait patiently for their response without interrupting.</li>
+              <li class="mb-2" data-i18n="guide_q4_a4">❌ <strong>Do not pretend:</strong> Don't pretend you understand if you don't. Gently say, "I'm sorry, I didn't get that. Let's try again."</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Caregiver Stress Management Section -->
+    <div class="row mt-5 pt-4 border-top">
+      <div class="col-lg-8 mx-auto text-center">
+         <h3 class="fw-bold mb-4" style="color: var(--secondary-color)" data-i18n="guide_stress_title">Managing Your Own Stress</h3>
+         <p class="text-muted" data-i18n="guide_stress_desc">You cannot pour from an empty cup. If you burn out, you won't be able to provide care.</p>
+         
+         <div class="card mt-4 shadow-sm border-0 text-start">
+           <div class="card-body p-4">
+             <h5 data-i18n="guide_stress_rules_title">The 3 Rules of Caregiver Survival:</h5>
+             <ol class="mt-3 text-muted">
+               <li class="mb-2" data-i18n="guide_stress_r1"><strong>Accept that you are human.</strong> You will get frustrated, make mistakes, and feel tired. This is normal. Forgive yourself.</li>
+               <li class="mb-2" data-i18n="guide_stress_r2"><strong>Ask for help specifically.</strong> Don't just say "I'm overwhelmed." Tell someone: "Can you come sit with Mom for 2 hours on Thursday so I can go to the store?"</li>
+               <li class="mb-2" data-i18n="guide_stress_r3"><strong>Keep one hobby alive.</strong> Continue doing at least one thing for yourself every week, whether it's reading, gardening, or walking alone.</li>
+             </ol>
+           </div>
+         </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="translations.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

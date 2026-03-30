@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareSupport - Psychoeducation for Caregivers</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="fs-4">💙 CareSupport</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link active" href="index.html" data-i18n="nav_home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="conditions.html" data-i18n="nav_conditions">Conditions</a></li>
+          <li class="nav-item"><a class="nav-link" href="guide.html" data-i18n="nav_guide">Caregiver Guide</a></li>
+          <li class="nav-item"><a class="nav-link" href="community.html" data-i18n="nav_community">Community</a></li>
+          <li class="nav-item"><a class="nav-link text-danger fw-bold" href="emergency.html" data-i18n="nav_emergency">🚨 Emergency</a></li>
+          <li class="nav-item"><a class="nav-link" href="self-test.html" data-i18n="nav_test">Self-Test</a></li>
+          <li class="nav-item dropdown ms-lg-3 mt-2 mt-lg-0">
+            <a class="nav-link dropdown-toggle btn btn-outline-secondary btn-sm px-3" href="#" role="button" data-bs-toggle="dropdown" data-i18n="nav_language">
+              🌐 Language
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
+              <li><a class="dropdown-item lang-switch" href="#" data-lang="en">English</a></li>
+              <li><a class="dropdown-item lang-switch" href="#" data-lang="fr">Français</a></li>
+              <li><a class="dropdown-item lang-switch" href="#" data-lang="ar">العربية</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section text-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h1 class="hero-title display-4" data-i18n="hero_title">You care for them. <br><span style="color: var(--secondary-color)">Let us help you.</span></h1>
+          <p class="hero-subtitle lead" data-i18n="hero_subtitle">Understanding mental health and medical conditions to provide better support while maintaining your own well-being.</p>
+          <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+            <a href="conditions.html" class="btn btn-primary-custom btn-lg shadow-sm" data-i18n="btn_understand">Understand Conditions</a>
+            <a href="guide.html" class="btn btn-secondary-custom btn-lg shadow-sm" data-i18n="btn_guide">Caregiver Guide</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mb-5">
+    
+    <!-- Tip of the Day Alert -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <div class="alert alert-tip shadow-sm d-flex align-items-center p-4" role="alert">
+          <div class="fs-2 me-4 pe-2 border-end border-secondary">💡</div>
+          <div>
+            <h5 class="alert-heading fw-bold mb-1" data-i18n="tip_title">Tip of the Day</h5>
+            <p class="mb-0 fs-5" id="daily-tip">Loading your daily tip...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Overview -->
+    <div class="row mb-5 text-center">
+      <div class="col-12 mb-4">
+        <h2 class="section-title" data-i18n="what_is_title">What is Psychoeducation?</h2>
+        <p class="lead w-75 mx-auto text-muted" data-i18n="what_is_desc">Psychoeducation means learning about your loved one's condition to understand their behavior, reduce your own anxiety, and improve the quality of care.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Feature 1 -->
+        <div class="col-md-4">
+          <div class="card custom-card p-4">
+            <div class="card-body">
+              <div class="card-icon">🧠</div>
+              <h4 class="card-title fw-bold text-primary-custom mb-3" data-i18n="feat1_title">Learn the Facts</h4>
+              <p class="card-text text-muted" data-i18n="feat1_desc">Understand depression, anxiety, stroke recovery, and how they affect behavior and mood.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="col-md-4">
+          <div class="card custom-card p-4">
+            <div class="card-body">
+              <div class="card-icon">🤝</div>
+              <h4 class="card-title fw-bold text-primary-custom mb-3" data-i18n="feat2_title">How to React</h4>
+              <p class="card-text text-muted" data-i18n="feat2_desc">Practical guides on what to do when your loved one is aggressive, refuses medication, or feels down.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="col-md-4">
+          <div class="card custom-card p-4">
+            <div class="card-body">
+              <div class="card-icon">🔋</div>
+              <h4 class="card-title fw-bold text-primary-custom mb-3" data-i18n="feat3_title">Protect Yourself</h4>
+              <p class="card-text text-muted" data-i18n="feat3_desc">Assess your stress levels and learn how to prevent caregiver burnout.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Who is this for -->
+    <div class="row bg-white rounded-4 shadow-sm p-5 my-5 align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h3 class="fw-bold" style="color: var(--primary-color)" data-i18n="who_title">Who is this website for?</h3>
+        <p class="text-muted mt-3 fs-5" data-i18n="who_desc">This platform is built specifically for <strong>family members</strong> and <strong>non-professional caregivers</strong>.</p>
+        <ul class="list-unstyled mt-4 border-start border-4 border-primary ps-3" style="border-color: var(--secondary-color) !important;">
+          <li class="mb-2" data-i18n="who_li1">✅ Husbands, wives, children, or parents of patients</li>
+          <li class="mb-2" data-i18n="who_li2">✅ People providing daily non-medical support at home</li>
+          <li class="mb-2" data-i18n="who_li3">✅ Those feeling overwhelmed and confused by medical terms</li>
+        </ul>
+        <a href="self-test.html" class="btn btn-outline-primary rounded-pill mt-3 px-4 fw-bold" data-i18n="btn_test">Take the Caregiver Stress Test</a>
+      </div>
+      <div class="col-lg-6 text-center">
+         <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80&w=800" alt="Caregiver holding hand" class="img-fluid rounded-4 shadow" style="max-height: 350px; object-fit: cover;">
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p class="text-muted mb-0" data-i18n="footer">© 2026 CareSupport. Designed for Caregivers. <br><small>This site provides educational information, not professional medical advice.</small></p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="translations.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
