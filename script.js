@@ -32,39 +32,24 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Dynamic Navbar Loader
+document.addEventListener("DOMContentLoaded", loadNavbar);
+
 async function loadNavbar() {
   const placeholder = document.getElementById('navbar-placeholder');
   if (!placeholder) return;
 
   try {
-    const response = await fetch('./navbar.html');
+    const response = await fetch('./navbar.html'); // safe relative path
     const content = await response.text();
     placeholder.innerHTML = content;
 
-    // Highlight active link
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = placeholder.querySelectorAll('a');
-    navLinks.forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === currentPath) {
+
+    placeholder.querySelectorAll('a').forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
         link.classList.add('bg-primary/10', 'text-primary', 'font-bold');
-        link.classList.remove('text-gray-700');
       }
     });
-
-    // Re-bind language switchers
-    const langSwitchers = placeholder.querySelectorAll('.lang-switch');
-    langSwitchers.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const lang = btn.getAttribute('data-lang');
-        setLanguage(lang);
-      });
-    });
-
-    // Apply current language to navbar
-    const savedLang = localStorage.getItem('selectedLang') || 'en';
-    setLanguage(savedLang);
 
   } catch (error) {
     console.error('Error loading navbar:', error);
