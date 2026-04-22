@@ -543,7 +543,7 @@ $(document).ready(function () {
         answersHtml += '</div>';
 
         let replyHtml = '';
-        if (currentUser && post.authorId !== currentUser.id) {
+        if (currentUser) {
             replyHtml = `
             <div class="p-6 bg-white border-t border-gray-100">
               <form class="reply-form flex gap-3" data-post-id="${postId}">
@@ -551,8 +551,6 @@ $(document).ready(function () {
                 <button class="bg-primary text-white font-black px-6 rounded-2xl hover:bg-secondary transition-all shadow-lg shadow-primary/20" type="submit">${t.comm_send}</button>
               </form>
             </div>`;
-        } else if (currentUser && post.authorId === currentUser.id) {
-            replyHtml = `<div class="p-6 bg-white border-t border-gray-100 text-center"><small class="text-gray-400 font-bold uppercase tracking-widest text-[10px]">${t.comm_cannot_reply_own}</small></div>`;
         } else {
             replyHtml = `<div class="p-6 bg-white border-t border-gray-100 text-center"><small class="text-gray-400 font-bold uppercase tracking-widest text-[10px]"><a href="#" onclick="closeModal('postDetailModal'); openModal('loginModal'); return false;" class="text-primary hover:underline">${t.comm_login_link}</a> ${t.comm_signin_to_reply}.</small></div>`;
         }
