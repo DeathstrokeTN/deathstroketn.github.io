@@ -308,7 +308,10 @@ const translations = {
     "comm_delete": "Delete",
     "comm_delete_confirm_title": "Delete Post?",
     "comm_delete_confirm_msg": "Are you sure you want to delete this post? This action cannot be undone.",
-    "comm_confirm": "Confirm Delete"
+    "comm_confirm": "Confirm Delete",
+    "error_404_title": "Page Not Found",
+    "error_404_msg": "Oops! The page you're looking for doesn't exist or has been moved.",
+    "btn_back_home": "Back to Home"
   },
 
   fr: {
@@ -632,7 +635,10 @@ const translations = {
     "comm_delete": "Supprimer",
     "comm_delete_confirm_title": "Supprimer le message ?",
     "comm_delete_confirm_msg": "Êtes-vous sûr de vouloir supprimer ce message ? Cette action est irréversible.",
-    "comm_confirm": "Confirmer la suppression"
+    "comm_confirm": "Confirmer la suppression",
+    "error_404_title": "Page Non Trouvée",
+    "error_404_msg": "Oups ! La page que vous recherchez n'existe pas ou a été déplacée.",
+    "btn_back_home": "Retour à l'Accueil"
   },
 
   ar: {
@@ -944,7 +950,10 @@ const translations = {
     "comm_delete": "حذف",
     "comm_delete_confirm_title": "حذف المنشور؟",
     "comm_delete_confirm_msg": "هل أنت متأكد أنك تريد حذف هذا المنشور؟ لا يمكن التراجع عن هذا الإجراء.",
-    "comm_confirm": "تأكيد الحذف"
+    "comm_confirm": "تأكيد الحذف",
+    "error_404_title": "الصفحة غير موجودة",
+    "error_404_msg": "عذراً! الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+    "btn_back_home": "العودة للرئيسية"
   },
   tn: {
     // Navbar
@@ -1210,6 +1219,9 @@ const translations = {
     "comm_d_ago": "أيام",
     "comm_h_ago": "ساعات",
     "comm_m_ago": "دقائق",
-    "comm_just_now": "توة"
+    "comm_just_now": "توة",
+    "error_404_title": "الصفحة موش موجودة",
+    "error_404_msg": "يا خيبة المسعى! الصفحة اللي تلوج عليها موش موجودة والا تبدلت بلاصتها.",
+    "btn_back_home": "ارجع للرئيسية"
   }
 };

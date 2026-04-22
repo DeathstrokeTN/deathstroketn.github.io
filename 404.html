@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | CareSupport</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2b6777',
+            secondary: '#52ab98',
+            accent: '#c8d8e4',
+            danger: '#e53e3e',
+            bg: '#f2f2f2',
+            text: '#2d3748',
+          },
+          borderRadius: {
+            '4xl': '2rem',
+            '5xl': '3rem',
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-bg text-text font-['Inter'] antialiased min-h-screen flex flex-col">
+
+  <!-- Navbar Placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- 404 Content -->
+  <main class="flex-grow container mx-auto px-4 flex items-center justify-center py-20">
+    <div class="max-w-2xl w-full text-center">
+      <div class="mb-8 relative inline-block">
+        <span class="text-[120px] md:text-[200px] font-black text-primary/10 select-none">404</span>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <span class="text-6xl md:text-8xl">🔍</span>
+        </div>
+      </div>
+      
+      <h1 class="text-4xl md:text-5xl font-extrabold text-primary mb-6" data-i18n="error_404_title">
+        Page Not Found
+      </h1>
+      <p class="text-xl text-gray-500 mb-12 max-w-md mx-auto leading-relaxed" data-i18n="error_404_msg">
+        Oops! The page you're looking for doesn't exist or has been moved.
+      </p>
+      
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="index.html" class="bg-primary text-white font-bold py-4 px-10 rounded-2xl shadow-xl shadow-primary/20 hover:bg-secondary hover:-translate-y-1 transition-all inline-flex items-center gap-3" data-i18n="btn_back_home">
+          <span>🏠</span> Back to Home
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-100 py-12 text-center mt-auto">
+    <div class="container mx-auto px-4">
+      <div class="text-2xl mb-4">💙</div>
+      <p class="text-gray-500 text-sm" data-i18n="footer">
+        © 2026 CareSupport. Designed for Caregivers.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="translations.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
