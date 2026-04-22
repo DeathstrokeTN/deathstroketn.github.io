@@ -26,8 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Load saved language on startup or default to English
   const savedLang = localStorage.getItem('selectedLang') || 'en';
-  if (typeof translations !== 'undefined') {
+  if (window.translations) {
     setLanguage(savedLang);
+  } else {
+    console.error("CareSupport: Translations object not found. Checking again in 500ms...");
+    setTimeout(() => {
+      if (window.translations) setLanguage(savedLang);
+      else console.error("CareSupport: Critical - Translations failed to load.");
+    }, 500);
   }
 });
 
@@ -37,7 +43,7 @@ async function loadNavbar() {
   if (!placeholder) return;
 
   try {
-    const response = await fetch('./navbar.html');
+    const response = await fetch('/navbar.html');
     const content = await response.text();
     placeholder.innerHTML = content;
 
@@ -88,8 +94,9 @@ function setLanguage(lang) {
   // Replace text using innerHTML to support <br> and <strong>
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (translations[lang] && translations[lang][key]) {
-      el.innerHTML = translations[lang][key];
+    const t = window.translations;
+    if (t && t[lang] && t[lang][key]) {
+      el.innerHTML = t[lang][key];
     }
   });
 
