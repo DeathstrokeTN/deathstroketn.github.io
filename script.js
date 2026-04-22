@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Interactive boxes logic (Toggle active class for CSS transition)
-  $(document).on('click', '.interactive-box', function() {
+  $(document).on('click', '.interactive-box', function () {
     $(this).toggleClass('active');
   });
 
@@ -37,7 +37,7 @@ async function loadNavbar() {
   if (!placeholder) return;
 
   try {
-    const response = await fetch('navbar.html');
+    const response = await fetch('./navbar.html');
     const content = await response.text();
     placeholder.innerHTML = content;
 
