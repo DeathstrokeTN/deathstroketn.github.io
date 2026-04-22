@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Load Navbar first
+  loadNavbar();
+
   // Tips of the day logic
   const tips = [
     "Take deep breaths when you feel overwhelmed. Taking care of yourself is taking care of them.",
@@ -16,29 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     tipElement.textContent = randomTip;
   }
 
-  // Interactive buttons logic
-  const interactiveBoxes = document.querySelectorAll('.interactive-box');
-  interactiveBoxes.forEach(box => {
-    box.addEventListener('click', () => {
-      const advice = box.querySelector('.hidden-advice');
-      if (advice) {
-        if (advice.style.display === 'block') {
-          advice.style.display = 'none';
-        } else {
-          advice.style.display = 'block';
-        }
-      }
-    });
-  });
-
-  // Language switch logic
-  const langSwitchers = document.querySelectorAll('.lang-switch');
-  langSwitchers.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const lang = btn.getAttribute('data-lang');
-      setLanguage(lang);
-    });
+  // Interactive boxes logic (Toggle active class for CSS transition)
+  $(document).on('click', '.interactive-box', function() {
+    $(this).toggleClass('active');
   });
 
   // Load saved language on startup or default to English
@@ -46,66 +29,60 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof translations !== 'undefined') {
     setLanguage(savedLang);
   }
-
-  // Self assessment logic
-  const quizForm = document.getElementById('self-test-form');
-  if (quizForm) {
-    quizForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const formData = new FormData(quizForm);
-      let score = 0;
-      let answered = 0;
-      
-      for (let value of formData.values()) {
-        score += parseInt(value);
-        answered++;
-      }
-
-      const lang = localStorage.getItem('selectedLang') || 'en';
-
-      if (answered < 5) {
-        alert(translations[lang] && translations[lang]['test_alert'] ? translations[lang]['test_alert'] : "Please answer all questions to get your result.");
-        return;
-      }
-
-      const resultBox = document.getElementById('quiz-result');
-      const resultTitle = document.getElementById('result-title');
-      const resultText = document.getElementById('result-text');
-
-      resultBox.style.display = 'block';
-      resultBox.classList.remove('alert-success', 'alert-warning', 'alert-danger');
-
-      if (score <= 8) {
-        resultBox.classList.add('alert-success');
-        resultTitle.innerHTML = translations[lang] && translations[lang]['res_low_title'] ? translations[lang]['res_low_title'] : "Low Stress Levels";
-        resultText.innerHTML = translations[lang] && translations[lang]['res_low_desc'] ? translations[lang]['res_low_desc'] : "You are managing your caregiving duties well. Continue your good habits and self-care routine!";
-      } else if (score <= 12) {
-        resultBox.classList.add('alert-warning');
-        resultTitle.innerHTML = translations[lang] && translations[lang]['res_med_title'] ? translations[lang]['res_med_title'] : "Moderate Stress - Approaching Burnout";
-        resultText.innerHTML = translations[lang] && translations[lang]['res_med_desc'] ? translations[lang]['res_med_desc'] : "You are showing signs of caregiver stress. Please consider asking for help and taking more breaks. It's crucial for your well-being.";
-      } else {
-        resultBox.classList.add('alert-danger');
-        resultTitle.innerHTML = translations[lang] && translations[lang]['res_high_title'] ? translations[lang]['res_high_title'] : "High Risk of Burnout";
-        resultText.innerHTML = translations[lang] && translations[lang]['res_high_desc'] ? translations[lang]['res_high_desc'] : "You are experiencing high levels of stress and possible burnout. Please contact a professional or a support group immediately. You need support to continue caring for your loved one.";
-      }
-
-      // Scroll to result
-      resultBox.scrollIntoView({ behavior: 'smooth' });
-    });
-  }
 });
+
+// Dynamic Navbar Loader
+async function loadNavbar() {
+  const placeholder = document.getElementById('navbar-placeholder');
+  if (!placeholder) return;
+
+  try {
+    const response = await fetch('navbar.html');
+    const content = await response.text();
+    placeholder.innerHTML = content;
+
+    // Highlight active link
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = placeholder.querySelectorAll('a');
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPath) {
+        link.classList.add('bg-primary/10', 'text-primary', 'font-bold');
+        link.classList.remove('text-gray-700');
+      }
+    });
+
+    // Re-bind language switchers
+    const langSwitchers = placeholder.querySelectorAll('.lang-switch');
+    langSwitchers.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const lang = btn.getAttribute('data-lang');
+        setLanguage(lang);
+      });
+    });
+
+    // Apply current language to navbar
+    const savedLang = localStorage.getItem('selectedLang') || 'en';
+    setLanguage(savedLang);
+
+  } catch (error) {
+    console.error('Error loading navbar:', error);
+  }
+}
 
 // Helper function to switch language
 function setLanguage(lang) {
   localStorage.setItem('selectedLang', lang);
 
-  if (lang === 'ar') {
+  if (lang === 'ar' || lang === 'tn') {
     document.documentElement.setAttribute('dir', 'rtl');
-    document.documentElement.setAttribute('lang', 'ar');
-    // Bootstrap RTL adjustment (swap margins/paddings handles via Bootstrap 5 logical properties, but some overrides may be needed)
+    document.documentElement.setAttribute('lang', lang);
+    document.body.classList.add('font-arabic'); // Optional: for specific Arabic fonts
   } else {
     document.documentElement.setAttribute('dir', 'ltr');
     document.documentElement.setAttribute('lang', lang);
+    document.body.classList.remove('font-arabic');
   }
 
   // Replace text using innerHTML to support <br> and <strong>
@@ -124,7 +101,6 @@ function updateTipLanguage(lang) {
   const tipElement = document.getElementById('daily-tip');
   if (tipElement && typeof translations !== 'undefined') {
     const tipKeys = ['tip_1', 'tip_2', 'tip_3', 'tip_4', 'tip_5', 'tip_6', 'tip_7'];
-    // We want a random tip based on daily tip keys
     const randomKey = tipKeys[Math.floor(Math.random() * tipKeys.length)];
     if (translations[lang] && translations[lang][randomKey]) {
       tipElement.innerHTML = translations[lang][randomKey];

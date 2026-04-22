@@ -1,0 +1,79 @@
+<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-white/30 shadow-sm py-3">
+  <div class="container mx-auto px-4 flex items-center justify-between">
+    <!-- Brand -->
+    <a class="text-2xl font-extrabold text-primary flex items-center" href="index.html">
+      <span class="mr-2">💙</span> CareSupport
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden lg:flex items-center space-x-2">
+      <a class="nav-link-tw px-4 py-2 rounded-xl font-semibold text-gray-700 hover:text-primary hover:bg-primary/5 transition-all"
+        href="index.html" data-i18n="nav_home">Home</a>
+      <a class="nav-link-tw px-4 py-2 rounded-xl font-semibold text-gray-700 hover:text-primary hover:bg-primary/5 transition-all"
+        href="conditions.html" data-i18n="nav_conditions">Conditions</a>
+      <a class="nav-link-tw px-4 py-2 rounded-xl font-semibold text-gray-700 hover:text-primary hover:bg-primary/5 transition-all"
+        href="guide.html" data-i18n="nav_guide">Caregiver Guide</a>
+      <a class="nav-link-tw px-4 py-2 rounded-xl font-semibold text-gray-700 hover:text-primary hover:bg-primary/5 transition-all"
+        href="community.html" data-i18n="nav_community">Community</a>
+      <a class="nav-link-tw px-4 py-2 rounded-xl font-bold text-danger hover:bg-danger/5 transition-all"
+        href="emergency.html" data-i18n="nav_emergency">🚨 Emergency</a>
+      <a class="nav-link-tw px-4 py-2 rounded-xl font-semibold text-gray-700 hover:text-primary hover:bg-primary/5 transition-all"
+        href="self-test.html" data-i18n="nav_test">Self-Test</a>
+
+      <!-- Language Dropdown -->
+      <div class="relative group ml-4">
+        <button
+          class="flex items-center gap-2 px-4 py-2 border-2 border-gray-200 rounded-xl font-semibold text-gray-700 hover:border-primary hover:text-primary transition-all">
+          <span data-i18n="nav_language">Language</span>
+        </button>
+        <div
+          class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+          <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary rounded-t-xl lang-switch"
+            href="#" data-lang="en">English</a>
+          <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary lang-switch" href="#"
+            data-lang="fr">Français</a>
+          <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary lang-switch" href="#"
+            data-lang="ar">العربية</a>
+          <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary rounded-b-xl lang-switch"
+            href="#" data-lang="tn">Tunisien (Tounsi)</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Toggle (Simplified for now) -->
+    <button class="lg:hidden p-2 text-gray-600 focus:outline-none"
+      onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-2 shadow-inner">
+    <a class="block px-4 py-2 rounded-xl font-semibold text-gray-700 hover:bg-primary/5" href="index.html"
+      data-i18n="nav_home">Home</a>
+    <a class="block px-4 py-2 rounded-xl font-semibold text-gray-700 hover:bg-primary/5" href="conditions.html"
+      data-i18n="nav_conditions">Conditions</a>
+    <a class="block px-4 py-2 rounded-xl font-semibold text-gray-700 hover:bg-primary/5" href="guide.html"
+      data-i18n="nav_guide">Caregiver Guide</a>
+    <a class="block px-4 py-2 rounded-xl font-semibold text-gray-700 hover:bg-primary/5" href="community.html"
+      data-i18n="nav_community">Community</a>
+    <a class="block px-4 py-2 rounded-xl font-bold text-danger hover:bg-danger/5" href="emergency.html"
+      data-i18n="nav_emergency">🚨 Emergency</a>
+    <a class="block px-4 py-2 rounded-xl font-semibold text-gray-700 hover:bg-primary/5" href="self-test.html"
+      data-i18n="nav_test">Self-Test</a>
+    <div class="pt-2 border-t border-gray-100">
+      <div class="flex gap-2 p-2">
+        <a class="flex-1 text-center py-2 text-sm font-semibold border rounded-lg lang-switch" href="#"
+          data-lang="en">EN</a>
+        <a class="flex-1 text-center py-2 text-sm font-semibold border rounded-lg lang-switch" href="#"
+          data-lang="fr">FR</a>
+        <a class="flex-1 text-center py-2 text-sm font-semibold border rounded-lg lang-switch" href="#"
+          data-lang="ar">AR</a>
+        <a class="flex-1 text-center py-2 text-sm font-semibold border rounded-lg lang-switch" href="#"
+          data-lang="tn">TN</a>
+      </div>
+    </div>
+  </div>
+</nav>

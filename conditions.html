@@ -4,178 +4,175 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Conditions - CareSupport</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2b6777',
+            secondary: '#52ab98',
+            accent: '#c8d8e4',
+            danger: '#e53e3e',
+            bg: '#f2f2f2',
+            text: '#2d3748',
+          }
+        }
+      }
+    }
+  </script>
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
-  <style>
-    .condition-header {
-      background-color: var(--primary-color);
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 1rem 1rem 0 0;
-    }
-    .condition-body {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 0 0 1rem 1rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      margin-bottom: 3rem;
-    }
-    .list-group-item {
-      border: none;
-      padding-left: 0;
-      border-bottom: 1px solid var(--bg-color);
-    }
-    .mistake-badge {
-      background-color: #fee2e2;
-      color: #991b1b;
-      padding: 0.2rem 0.5rem;
-      border-radius: 0.25rem;
-      font-size: 0.8rem;
-      margin-right: 0.5rem;
-    }
-  </style>
 </head>
-<body>
+<body class="bg-bg text-text font-['Inter'] antialiased">
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <span class="fs-4">💙 CareSupport</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav align-items-center">
-          <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav_home">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="conditions.html" data-i18n="nav_conditions">Conditions</a></li>
-          <li class="nav-item"><a class="nav-link" href="guide.html" data-i18n="nav_guide">Caregiver Guide</a></li>
-          <li class="nav-item"><a class="nav-link" href="community.html" data-i18n="nav_community">Community</a></li>
-          <li class="nav-item"><a class="nav-link text-danger fw-bold" href="emergency.html" data-i18n="nav_emergency">🚨 Emergency</a></li>
-          <li class="nav-item"><a class="nav-link" href="self-test.html" data-i18n="nav_test">Self-Test</a></li>
-          <li class="nav-item dropdown ms-lg-3 mt-2 mt-lg-0">
-            <a class="nav-link dropdown-toggle btn btn-outline-secondary btn-sm px-3" href="#" role="button" data-bs-toggle="dropdown" data-i18n="nav_language">
-              🌐 Language
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
-              <li><a class="dropdown-item lang-switch" href="#" data-lang="en">English</a></li>
-              <li><a class="dropdown-item lang-switch" href="#" data-lang="fr">Français</a></li>
-              <li><a class="dropdown-item lang-switch" href="#" data-lang="ar">العربية</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <!-- Navbar Placeholder -->
+  <div id="navbar-placeholder"></div>
 
   <!-- Page Header -->
-  <header class="bg-light py-5 mb-5 border-bottom">
-    <div class="container text-center">
-      <h1 class="fw-bold" style="color: var(--primary-color)" data-i18n="cond_title">Understanding Conditions</h1>
-      <p class="lead text-muted" data-i18n="cond_subtitle">Learn about common conditions, what symptoms to expect, and mistakes to avoid.</p>
+  <header class="bg-white py-16 mb-12 border-b border-gray-100 shadow-sm text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-extrabold text-primary mb-4" data-i18n="cond_title">Understanding Conditions</h1>
+      <p class="text-xl text-gray-500 max-w-2xl mx-auto" data-i18n="cond_subtitle">Learn about common conditions, what symptoms to expect, and mistakes to avoid.</p>
     </div>
   </header>
 
-  <main class="container">
+  <main class="container mx-auto px-4 pb-20">
     
-    <!-- Stroke Recovery Section -->
-    <div class="row">
-      <div class="col-lg-10 mx-auto">
-        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800" class="img-fluid w-100 rounded-top-4" style="height: 250px; object-fit: cover;" alt="Medical care">
-        <div class="condition-header" style="border-radius: 0;">
-          <h2 class="h3 mb-0" data-i18n="cond_stroke_title">⚕️ Stroke Recovery (Post-Stroke Care)</h2>
+    <div class="max-w-4xl mx-auto space-y-16">
+      
+      <!-- Stroke Recovery Section -->
+      <section class="bg-white rounded-3xl shadow-xl overflow-hidden group hover:shadow-2xl transition-shadow duration-300">
+        <div class="relative h-64 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800" 
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Medical care">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <h2 class="absolute bottom-6 left-8 text-2xl font-bold text-white" data-i18n="cond_stroke_title">⚕️ Stroke Recovery</h2>
         </div>
-        <div class="condition-body">
-          <h4 class="text-primary-custom mb-3" data-i18n="cond_symp_head">📋 Symptoms to Expect</h4>
-          <ul class="list-group mb-4">
-            <li class="list-group-item" data-i18n="cond_stroke_s1">🔹 Physical weakness on one side of the body</li>
-            <li class="list-group-item" data-i18n="cond_stroke_s2">🔹 Difficulty speaking or understanding speech (Aphasia)</li>
-            <li class="list-group-item" data-i18n="cond_stroke_s3">🔹 Emotional changes: sudden crying or laughing, frustration</li>
-            <li class="list-group-item" data-i18n="cond_stroke_s4">🔹 Fatigue and need for much more sleep</li>
-          </ul>
+        
+        <div class="p-8 md:p-12">
+          <div class="grid md:grid-cols-2 gap-10">
+            <div>
+              <h4 class="text-lg font-extrabold text-primary uppercase tracking-wider mb-6 flex items-center gap-2" data-i18n="cond_symp_head">
+                <span class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary text-sm">📋</span>
+                Symptoms to Expect
+              </h4>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3 text-gray-600" data-i18n="cond_stroke_s1">
+                  <span class="text-secondary mt-1">🔹</span> Physical weakness on one side
+                </li>
+                <li class="flex items-start gap-3 text-gray-600" data-i18n="cond_stroke_s2">
+                  <span class="text-secondary mt-1">🔹</span> Difficulty speaking (Aphasia)
+                </li>
+                <li class="flex items-start gap-3 text-gray-600" data-i18n="cond_stroke_s3">
+                  <span class="text-secondary mt-1">🔹</span> Emotional changes & frustration
+                </li>
+                <li class="flex items-start gap-3 text-gray-600" data-i18n="cond_stroke_s4">
+                  <span class="text-secondary mt-1">🔹</span> Significant fatigue
+                </li>
+              </ul>
+            </div>
+            
+            <div class="bg-accent/20 p-6 rounded-2xl">
+              <h4 class="text-lg font-extrabold text-primary uppercase tracking-wider mb-4 flex items-center gap-2" data-i18n="cond_under_head">
+                <span class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary text-sm">💡</span>
+                Inside the Mind
+              </h4>
+              <p class="text-gray-700 leading-relaxed italic" data-i18n="cond_stroke_u1">
+                The brain is healing. Recovery takes time. Their outbursts are often a result of brain injury, not their true feelings.
+              </p>
+            </div>
+          </div>
 
-          <h4 class="text-primary-custom mb-3" data-i18n="cond_under_head">💡 What You Should Understand</h4>
-          <p class="text-muted" data-i18n="cond_stroke_u1">The brain is healing. Recovery takes a long time, and progress can be slow. Their emotional outbursts are often a result of brain injury, not their true feelings towards you.</p>
-
-          <h4 class="text-primary-custom mb-3 mt-4" data-i18n="cond_mistake_head">⚠️ Mistakes to Avoid</h4>
-          <ul class="list-group">
-            <li class="list-group-item" data-i18n="cond_stroke_m1"><span class="mistake-badge">Avoid</span> Doing everything for them. Let them do what they can to rebuild independence.</li>
-            <li class="list-group-item" data-i18n="cond_stroke_m2"><span class="mistake-badge">Avoid</span> Speaking louder if they have aphasia. They can hear you, they just have trouble processing the words. Speak slowly and clearly instead.</li>
-            <li class="list-group-item" data-i18n="cond_stroke_m3"><span class="mistake-badge">Avoid</span> Ignoring your own back health when helping them move.</li>
-          </ul>
+          <div class="mt-12 pt-8 border-t border-gray-100">
+            <h4 class="text-lg font-extrabold text-danger uppercase tracking-wider mb-6 flex items-center gap-2" data-i18n="cond_mistake_head">
+              <span class="w-8 h-8 bg-danger/10 rounded-lg flex items-center justify-center text-danger text-sm">⚠️</span>
+              Mistakes to Avoid
+            </h4>
+            <div class="grid gap-4">
+              <div class="flex items-center gap-4 bg-red-50 p-4 rounded-xl border border-red-100" data-i18n="cond_stroke_m1">
+                <span class="bg-red-200 text-red-800 text-[10px] font-bold px-2 py-1 rounded uppercase">Avoid</span>
+                <p class="text-red-900 text-sm">Doing everything for them. Let them rebuild independence.</p>
+              </div>
+              <div class="flex items-center gap-4 bg-red-50 p-4 rounded-xl border border-red-100" data-i18n="cond_stroke_m2">
+                <span class="bg-red-200 text-red-800 text-[10px] font-bold px-2 py-1 rounded uppercase">Avoid</span>
+                <p class="text-red-900 text-sm">Speaking louder if they have aphasia. They can hear you; speak slowly.</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <!-- Depression Section -->
+      <section class="bg-white rounded-3xl shadow-xl overflow-hidden group hover:shadow-2xl transition-shadow duration-300">
+        <div class="relative h-64 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1560090995-01632a28895b?auto=format&fit=crop&q=80&w=800" 
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Comforting another">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <h2 class="absolute bottom-6 left-8 text-2xl font-bold text-white" data-i18n="cond_dep_title">🌧️ Depression</h2>
+        </div>
+        
+        <div class="p-8 md:p-12">
+          <div class="grid md:grid-cols-2 gap-10">
+            <div>
+              <h4 class="text-lg font-extrabold text-primary uppercase tracking-wider mb-6 flex items-center gap-2" data-i18n="cond_symp_head">
+                <span class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary text-sm">📋</span>
+                Symptoms to Expect
+              </h4>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3 text-gray-600" data-i18n="cond_dep_s1">
+                  <span class="text-secondary mt-1">🔹</span> Loss of interest in hobbies
+                </li>
+                <li class="flex items-start gap-3 text-gray-600" data-i18n="cond_dep_s2">
+                  <span class="text-secondary mt-1">🔹</span> Persistent sadness or irritability
+                </li>
+                <li class="flex items-start gap-3 text-gray-600" data-i18n="cond_dep_s3">
+                  <span class="text-secondary mt-1">🔹</span> Appetite and sleep changes
+                </li>
+                <li class="flex items-start gap-3 text-gray-600" data-i18n="cond_dep_s4">
+                  <span class="text-secondary mt-1">🔹</span> Chronic lack of energy
+                </li>
+              </ul>
+            </div>
+            
+            <div class="bg-accent/20 p-6 rounded-2xl">
+              <h4 class="text-lg font-extrabold text-primary uppercase tracking-wider mb-4 flex items-center gap-2" data-i18n="cond_under_head">
+                <span class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary text-sm">💡</span>
+                Inside the Mind
+              </h4>
+              <p class="text-gray-700 leading-relaxed italic" data-i18n="cond_dep_u1">
+                Depression is an illness, not a choice. They can't "snap out of it." Small tasks feel like mountains.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-12 pt-8 border-t border-gray-100">
+            <h4 class="text-lg font-extrabold text-danger uppercase tracking-wider mb-6 flex items-center gap-2" data-i18n="cond_mistake_head">
+              <span class="w-8 h-8 bg-danger/10 rounded-lg flex items-center justify-center text-danger text-sm">⚠️</span>
+              Mistakes to Avoid
+            </h4>
+            <div class="grid gap-4">
+              <div class="flex items-center gap-4 bg-red-50 p-4 rounded-xl border border-red-100" data-i18n="cond_dep_m1">
+                <span class="bg-red-200 text-red-800 text-[10px] font-bold px-2 py-1 rounded uppercase">Avoid</span>
+                <p class="text-red-900 text-sm">Saying "cheer up." It only increases their guilt.</p>
+              </div>
+              <div class="flex items-center gap-4 bg-red-50 p-4 rounded-xl border border-red-100" data-i18n="cond_dep_m2">
+                <span class="bg-red-200 text-red-800 text-[10px] font-bold px-2 py-1 rounded uppercase">Avoid</span>
+                <p class="text-red-900 text-sm">Taking their social isolation personally.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
-
-    <!-- Depression Section -->
-    <div class="row mt-4">
-      <div class="col-lg-10 mx-auto">
-        <img src="https://images.unsplash.com/photo-1560090995-01632a28895b?auto=format&fit=crop&q=80&w=800" class="img-fluid w-100 rounded-top-4" style="height: 250px; object-fit: cover; object-position: top;" alt="Comforting another">
-        <div class="condition-header" style="background-color: #4A5568; border-radius: 0;">
-          <h2 class="h3 mb-0" data-i18n="cond_dep_title">🌧️ Depression</h2>
-        </div>
-        <div class="condition-body">
-          <h4 class="text-primary-custom mb-3" data-i18n="cond_symp_head">📋 Symptoms to Expect</h4>
-          <ul class="list-group mb-4">
-            <li class="list-group-item" data-i18n="cond_dep_s1">🔹 Loss of interest in daily activities and hobbies</li>
-            <li class="list-group-item" data-i18n="cond_dep_s2">🔹 Persistent sadness, "empty" mood, or irritability</li>
-            <li class="list-group-item" data-i18n="cond_dep_s3">🔹 Significant changes in appetite and sleep patterns</li>
-            <li class="list-group-item" data-i18n="cond_dep_s4">🔹 Lack of energy, chronic fatigue</li>
-          </ul>
-
-          <h4 class="text-primary-custom mb-3" data-i18n="cond_under_head">💡 What You Should Understand</h4>
-          <p class="text-muted" data-i18n="cond_dep_u1">Depression is a medical illness, not a choice or a sign of weakness. They cannot simply "snap out of it." Small tasks like showering or eating can feel like climbing a mountain to them.</p>
-
-          <h4 class="text-primary-custom mb-3 mt-4" data-i18n="cond_mistake_head">⚠️ Mistakes to Avoid</h4>
-          <ul class="list-group">
-            <li class="list-group-item" data-i18n="cond_dep_m1"><span class="mistake-badge">Avoid</span> Saying "cheer up" or "other people have it worse." This increases guilt.</li>
-            <li class="list-group-item" data-i18n="cond_dep_m2"><span class="mistake-badge">Avoid</span> Taking their isolation personally.</li>
-            <li class="list-group-item" data-i18n="cond_dep_m3"><span class="mistake-badge">Avoid</span> Forcing them into social situations before they are ready.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Anxiety Section -->
-    <div class="row mt-4">
-      <div class="col-lg-10 mx-auto">
-        <img src="https://images.unsplash.com/photo-1543807535-eceef0bc6599?auto=format&fit=crop&q=80&w=800" class="img-fluid w-100 rounded-top-4" style="height: 250px; object-fit: cover;" alt="Calming nature">
-        <div class="condition-header" style="background-color: #52ab98; border-radius: 0;">
-          <h2 class="h3 mb-0" data-i18n="cond_anx_title">🌪️ Anxiety Disorder</h2>
-        </div>
-        <div class="condition-body">
-          <h4 class="text-dark mb-3" data-i18n="cond_symp_head">📋 Symptoms to Expect</h4>
-          <ul class="list-group mb-4">
-            <li class="list-group-item" data-i18n="cond_anx_s1">🔹 Constant worrying and feeling restless</li>
-            <li class="list-group-item" data-i18n="cond_anx_s2">🔹 Physical symptoms: racing heart, sweating, trembling</li>
-            <li class="list-group-item" data-i18n="cond_anx_s3">🔹 Panic attacks (sudden intense fear)</li>
-            <li class="list-group-item" data-i18n="cond_anx_s4">🔹 Avoidance of certain places or situations</li>
-          </ul>
-
-          <h4 class="text-dark mb-3" data-i18n="cond_under_head">💡 What You Should Understand</h4>
-          <p class="text-muted" data-i18n="cond_anx_u1">To the patient, the threat feels 100% real, even if it seems irrational to you. Their nervous system is caught in a "fight or flight" response.</p>
-
-          <h4 class="text-dark mb-3 mt-4" data-i18n="cond_mistake_head">⚠️ Mistakes to Avoid</h4>
-          <ul class="list-group">
-            <li class="list-group-item" data-i18n="cond_anx_m1"><span class="mistake-badge">Avoid</span> Saying "just calm down" or "there is nothing to worry about."</li>
-            <li class="list-group-item" data-i18n="cond_anx_m2"><span class="mistake-badge">Avoid</span> Getting angry or frustrated when they ask for reassurance constantly.</li>
-            <li class="list-group-item" data-i18n="cond_anx_m3"><span class="mistake-badge">Avoid</span> Enabling their avoidance entirely (though pushing too hard is also bad).</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
   </main>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JS -->
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="translations.js"></script>
   <script src="script.js"></script>
 </body>

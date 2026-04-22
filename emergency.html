@@ -4,132 +4,140 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Emergency - CareSupport</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2b6777',
+            secondary: '#52ab98',
+            accent: '#c8d8e4',
+            danger: '#e53e3e',
+            bg: '#fef2f2',
+          }
+        }
+      }
+    }
+  </script>
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: #fff5f5;">
+<body class="bg-bg text-gray-900 font-['Inter'] antialiased">
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <span class="fs-4">💙 CareSupport</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <!-- Navbar Placeholder -->
+  <div id="navbar-placeholder"></div>
 
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav align-items-center">
-          <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav_home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="conditions.html" data-i18n="nav_conditions">Conditions</a></li>
-          <li class="nav-item"><a class="nav-link" href="guide.html" data-i18n="nav_guide">Caregiver Guide</a></li>
-          <li class="nav-item"><a class="nav-link" href="community.html" data-i18n="nav_community">Community</a></li>
-          <li class="nav-item"><a class="nav-link active text-danger fw-bold" href="emergency.html" data-i18n="nav_emergency">🚨 Emergency</a></li>
-          <li class="nav-item"><a class="nav-link" href="self-test.html" data-i18n="nav_test">Self-Test</a></li>
-          <li class="nav-item dropdown ms-lg-3 mt-2 mt-lg-0">
-            <a class="nav-link dropdown-toggle btn btn-outline-secondary btn-sm px-3" href="#" role="button" data-bs-toggle="dropdown" data-i18n="nav_language">
-              🌐 Language
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
-              <li><a class="dropdown-item lang-switch" href="#" data-lang="en">English</a></li>
-              <li><a class="dropdown-item lang-switch" href="#" data-lang="fr">Français</a></li>
-              <li><a class="dropdown-item lang-switch" href="#" data-lang="ar">العربية</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <main class="container py-5">
+  <main class="container mx-auto px-4 py-12">
     
-    <div class="row text-center mb-5 align-items-center">
-      <div class="col-lg-7 text-lg-start">
-        <h1 class="display-5 fw-bold text-danger" data-i18n="emerg_title">🚨 Emergency Guidance</h1>
-        <p class="lead mt-3 text-dark" data-i18n="emerg_subtitle">Know exactly when to stop managing at home and seek immediate medical or psychiatric help.</p>
+    <div class="flex flex-col lg:flex-row items-center gap-12 mb-16">
+      <div class="lg:w-2/3">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-danger mb-6 flex items-center gap-3" data-i18n="emerg_title">
+          🚨 Emergency Guidance
+        </h1>
+        <p class="text-xl text-gray-700 leading-relaxed max-w-2xl" data-i18n="emerg_subtitle">
+          Know exactly when to stop managing at home and seek immediate medical or psychiatric help.
+        </p>
       </div>
-      <div class="col-lg-5 mt-4 mt-lg-0">
-        <img src="https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d?auto=format&fit=crop&q=80&w=600" alt="Ambulance" class="img-fluid rounded-4 shadow-sm" style="max-height: 200px; object-fit: cover;">
+      <div class="lg:w-1/3">
+        <img src="https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d?auto=format&fit=crop&q=80&w=600" 
+             alt="Ambulance" class="w-full h-48 object-cover rounded-3xl shadow-lg border-4 border-white">
       </div>
     </div>
 
-    <div class="row g-4">
+    <div class="grid md:grid-cols-2 gap-8">
       
       <!-- Warning Signs (Mental Health) -->
-      <div class="col-lg-6">
-        <div class="card border-0 shadow-sm h-100" style="border-top: 5px solid var(--danger) !important;">
-          <div class="card-body p-4">
-            <h3 class="card-title fw-bold mb-4 d-flex align-items-center" data-i18n="emerg_psych_title">
-              <span class="bg-danger text-white rounded-circle d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px;">1</span> 
-              Psychiatric Emergency
-            </h3>
-            <p class="text-muted fw-bold" data-i18n="emerg_psych_desc">Go to the hospital or call emergency services immediately if the patient:</p>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item bg-transparent" data-i18n="emerg_psych_1">❗ Threatens to harm themselves (suicidal statements or actions).</li>
-              <li class="list-group-item bg-transparent" data-i18n="emerg_psych_2">❗ Threatens to physically harm you or someone else.</li>
-              <li class="list-group-item bg-transparent" data-i18n="emerg_psych_3">❗ Is experiencing severe hallucinations (seeing or hearing things that aren't there and acting on them).</li>
-              <li class="list-group-item bg-transparent" data-i18n="emerg_psych_4">❗ Completely stops eating or drinking for multiple days.</li>
-              <li class="list-group-item bg-transparent" data-i18n="emerg_psych_5">❗ Is completely unresponsive but breathing.</li>
-            </ul>
-          </div>
+      <section class="bg-white rounded-3xl shadow-xl overflow-hidden border-t-8 border-danger">
+        <div class="p-8 md:p-10">
+          <h3 class="text-2xl font-bold mb-6 flex items-center gap-4" data-i18n="emerg_psych_title">
+            <span class="w-10 h-10 bg-danger text-white rounded-full flex items-center justify-center font-bold">1</span> 
+            Psychiatric Emergency
+          </h3>
+          <p class="text-gray-600 font-bold mb-6" data-i18n="emerg_psych_desc">Seek help immediately if the patient:</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3 p-4 bg-red-50 rounded-2xl text-red-900" data-i18n="emerg_psych_1">
+              <span class="text-danger font-bold">❗</span> Threatens self-harm or suicide.
+            </li>
+            <li class="flex items-start gap-3 p-4 bg-red-50 rounded-2xl text-red-900" data-i18n="emerg_psych_2">
+              <span class="text-danger font-bold">❗</span> Threatens to harm you or others.
+            </li>
+            <li class="flex items-start gap-3 p-4 bg-red-50 rounded-2xl text-red-900" data-i18n="emerg_psych_3">
+              <span class="text-danger font-bold">❗</span> Severe hallucinations (hearing/seeing things).
+            </li>
+            <li class="flex items-start gap-3 p-4 bg-red-50 rounded-2xl text-red-900" data-i18n="emerg_psych_4">
+              <span class="text-danger font-bold">❗</span> Stops eating/drinking for multiple days.
+            </li>
+            <li class="flex items-start gap-3 p-4 bg-red-50 rounded-2xl text-red-900" data-i18n="emerg_psych_5">
+              <span class="text-danger font-bold">❗</span> Unresponsive but breathing.
+            </li>
+          </ul>
         </div>
-      </div>
+      </section>
 
       <!-- Warning Signs (Medical / Stroke) -->
-      <div class="col-lg-6">
-        <div class="card border-0 shadow-sm h-100" style="border-top: 5px solid #d97706 !important;">
-          <div class="card-body p-4">
-            <h3 class="card-title fw-bold mb-4 d-flex align-items-center" data-i18n="emerg_med_title">
-              <span class="bg-warning text-white rounded-circle d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px;">2</span> 
-              Medical Emergency (Post-Stroke)
-            </h3>
-            <p class="text-muted fw-bold" data-i18n="emerg_med_desc">Call an ambulance (do not drive them yourself) if you notice:</p>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item bg-transparent" data-i18n="emerg_med_1">⚡ <strong>F</strong>ace drooping on one side again.</li>
-              <li class="list-group-item bg-transparent" data-i18n="emerg_med_2">⚡ <strong>A</strong>rm weakness (cannot raise both arms).</li>
-              <li class="list-group-item bg-transparent" data-i18n="emerg_med_3">⚡ <strong>S</strong>peech difficulty (sudden slurring or inability to speak).</li>
-              <li class="list-group-item bg-transparent" data-i18n="emerg_med_4">⚡ Sudden, severe headache with no known cause.</li>
-              <li class="list-group-item bg-transparent" data-i18n="emerg_med_5">⚡ Sudden loss of balance or coordination, or a severe fall.</li>
-            </ul>
-            <p class="mt-3 text-muted small" data-i18n="emerg_med_note"><strong>Note:</strong> Time is critical in stroke events. (Think F.A.S.T. - Face, Arms, Speech, Time).</p>
+      <section class="bg-white rounded-3xl shadow-xl overflow-hidden border-t-8 border-orange-500">
+        <div class="p-8 md:p-10">
+          <h3 class="text-2xl font-bold mb-6 flex items-center gap-4" data-i18n="emerg_med_title">
+            <span class="w-10 h-10 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold">2</span> 
+            Medical Emergency
+          </h3>
+          <p class="text-gray-600 font-bold mb-6" data-i18n="emerg_med_desc">Call an ambulance if you notice:</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3 p-4 bg-orange-50 rounded-2xl text-orange-900" data-i18n="emerg_med_1">
+              <span class="text-orange-600 font-bold text-xl">⚡</span> <strong>Face</strong> drooping on one side.
+            </li>
+            <li class="flex items-start gap-3 p-4 bg-orange-50 rounded-2xl text-orange-900" data-i18n="emerg_med_2">
+              <span class="text-orange-600 font-bold text-xl">⚡</span> <strong>Arm</strong> weakness (cannot raise both).
+            </li>
+            <li class="flex items-start gap-3 p-4 bg-orange-50 rounded-2xl text-orange-900" data-i18n="emerg_med_3">
+              <span class="text-orange-600 font-bold text-xl">⚡</span> <strong>Speech</strong> difficulty or slurring.
+            </li>
+            <li class="flex items-start gap-3 p-4 bg-orange-50 rounded-2xl text-orange-900" data-i18n="emerg_med_4">
+              <span class="text-orange-600 font-bold text-xl">⚡</span> Sudden, severe headache.
+            </li>
+            <li class="flex items-start gap-3 p-4 bg-orange-50 rounded-2xl text-orange-900" data-i18n="emerg_med_5">
+              <span class="text-orange-600 font-bold text-xl">⚡</span> Sudden loss of balance or severe fall.
+            </li>
+          </ul>
+          <div class="mt-6 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm italic text-gray-500" data-i18n="emerg_med_note">
+            <strong>Note:</strong> Time is critical. Remember <strong>F.A.S.T.</strong> (Face, Arms, Speech, Time).
           </div>
         </div>
-      </div>
+      </section>
 
     </div>
 
     <!-- Contact Box -->
-    <div class="row mt-5">
-      <div class="col-12 col-lg-8 mx-auto">
-        <div class="alert alert-danger shadow p-5 border-0 text-center rounded-4">
-          <h4 class="fw-bold mb-3" data-i18n="emerg_contact_title">Important Contacts to Have Ready</h4>
-          <p class="mb-4 text-dark" data-i18n="emerg_contact_desc">Write these numbers down and keep them on your fridge or save them in your phone favorites.</p>
-          
-          <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
-             <div class="bg-white text-danger px-4 py-3 rounded-3 fw-bold shadow-sm d-flex align-items-center" data-i18n="emerg_contact_1">
-               <span class="fs-4 me-2">🚑</span> Ambulance: [Local Number]
-             </div>
-             <div class="bg-white text-danger px-4 py-3 rounded-3 fw-bold shadow-sm d-flex align-items-center" data-i18n="emerg_contact_2">
-               <span class="fs-4 me-2">🏥</span> Nearest Hospital: [Number]
-             </div>
-             <div class="bg-white text-danger px-4 py-3 rounded-3 fw-bold shadow-sm d-flex align-items-center" data-i18n="emerg_contact_3">
-               <span class="fs-4 me-2">🧑‍⚕️</span> Patient's Doctor: [Number]
-             </div>
-          </div>
+    <div class="mt-16 max-w-4xl mx-auto">
+      <div class="bg-danger/5 border-2 border-danger/20 rounded-4xl p-10 md:p-16 text-center">
+        <h4 class="text-3xl font-extrabold text-danger mb-4" data-i18n="emerg_contact_title">Emergency Contacts</h4>
+        <p class="text-lg text-gray-600 mb-10" data-i18n="emerg_contact_desc">Save these numbers in your phone favorites or keep them on your fridge.</p>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+           <div class="bg-white p-6 rounded-2xl shadow-lg border border-red-100 flex flex-col items-center justify-center gap-3 group hover:bg-danger transition-colors duration-300" data-i18n="emerg_contact_1">
+             <span class="text-4xl">🚑</span>
+             <span class="text-danger font-bold group-hover:text-white">Ambulance: [Local]</span>
+           </div>
+           <div class="bg-white p-6 rounded-2xl shadow-lg border border-red-100 flex flex-col items-center justify-center gap-3 group hover:bg-danger transition-colors duration-300" data-i18n="emerg_contact_2">
+             <span class="text-4xl">🏥</span>
+             <span class="text-danger font-bold group-hover:text-white">Nearest Hospital</span>
+           </div>
+           <div class="bg-white p-6 rounded-2xl shadow-lg border border-red-100 flex flex-col items-center justify-center gap-3 group hover:bg-danger transition-colors duration-300" data-i18n="emerg_contact_3">
+             <span class="text-4xl">🧑‍⚕️</span>
+             <span class="text-danger font-bold group-hover:text-white">Patient's Doctor</span>
+           </div>
         </div>
       </div>
     </div>
 
   </main>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JS -->
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="translations.js"></script>
   <script src="script.js"></script>
 </body>

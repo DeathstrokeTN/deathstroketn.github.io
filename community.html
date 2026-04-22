@@ -1,214 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Community - CareSupport</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2b6777',
+            secondary: '#52ab98',
+            accent: '#c8d8e4',
+            danger: '#e53e3e',
+            bg: '#f0f2f5',
+          },
+          borderRadius: {
+            '4xl': '2rem',
+            '5xl': '3rem',
+          }
+        }
+      }
+    }
+  </script>
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: #f7fafc;">
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <span class="fs-4">💙 CareSupport</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<body class="bg-bg text-gray-900 font-['Inter'] antialiased">
 
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav align-items-center">
-          <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav_home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="conditions.html" data-i18n="nav_conditions">Conditions</a></li>
-          <li class="nav-item"><a class="nav-link" href="guide.html" data-i18n="nav_guide">Caregiver Guide</a></li>
-          <li class="nav-item"><a class="nav-link active" href="community.html" data-i18n="nav_community">Community</a></li>
-          <li class="nav-item"><a class="nav-link text-danger fw-bold" href="emergency.html" data-i18n="nav_emergency">🚨 Emergency</a></li>
-          <li class="nav-item"><a class="nav-link" href="self-test.html" data-i18n="nav_test">Self-Test</a></li>
-          <li class="nav-item dropdown ms-lg-3 mt-2 mt-lg-0">
-            <a class="nav-link dropdown-toggle btn btn-outline-secondary btn-sm px-3" href="#" role="button" data-bs-toggle="dropdown" data-i18n="nav_language">
-              🌐 Language
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
-              <li><a class="dropdown-item lang-switch" href="#" data-lang="en">English</a></li>
-              <li><a class="dropdown-item lang-switch" href="#" data-lang="fr">Français</a></li>
-              <li><a class="dropdown-item lang-switch" href="#" data-lang="ar">العربية</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <!-- Navbar Placeholder -->
+  <div id="navbar-placeholder"></div>
 
-  <main class="container py-5">
-    
-    <div class="row align-items-center mb-5 bg-white p-5 rounded-4 shadow-sm">
-      <div class="col-lg-6">
-        <h1 class="fw-bold" style="color: var(--primary-color)" data-i18n="comm_title">Ask a Professional</h1>
-        <p class="lead text-muted mt-3" data-i18n="comm_subtitle">Connect with qualified health professionals and other caregivers for support and advice.</p>
-        
-        <!-- Auth / Action Buttons -->
-        <div id="auth-buttons" class="mt-4">
-          <button class="btn btn-outline-secondary me-2 px-4 shadow-sm" data-bs-toggle="modal" data-bs-target="#loginModal">Sign In</button>
-          <button class="btn btn-primary-custom px-4 shadow-sm" data-bs-toggle="modal" data-bs-target="#registerModal">Sign Up</button>
-        </div>
-        
-        <div id="user-actions" class="mt-4" style="display: none;">
-          <div class="d-flex align-items-center mb-3 justify-content-lg-start justify-content-center">
-            <p class="mb-0 text-success fw-bold me-3">Welcome, <span id="display-user-name">User</span>! 👋</p>
-            <!-- Notifications Dropdown -->
-            <div class="dropdown">
-              <button class="btn btn-light rounded-circle position-relative p-2 shadow-sm border" type="button" id="notifDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="width: 45px; height: 45px;">
-                🔔
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="notif-badge" style="display: none;">0</span>
+  <main class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- Left Sidebar -->
+      <aside class="lg:col-span-3 sticky top-24 hidden lg:block">
+        <div
+          class="bg-white rounded-3xl shadow-xl shadow-gray-200/50 p-6 text-center relative border border-gray-100 overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-r from-primary to-secondary"></div>
+
+          <!-- Notifications Dropdown -->
+          <div class="absolute top-2 right-2 z-[60]">
+            <div class="relative group">
+              <button
+                class="bg-white/20 backdrop-blur-md text-white rounded-full p-2.5 hover:bg-white/40 transition-all relative"
+                id="notifDropdown">
+                <i class="fas fa-bell"></i>
+                <span
+                  class="absolute -top-1 -right-1 bg-danger text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-white hidden"
+                  id="notif-badge">0</span>
               </button>
-              <ul class="dropdown-menu shadow border-0 mt-2 p-2" aria-labelledby="notifDropdown" id="notif-list" style="width: 320px; max-height: 400px; overflow-y: auto;">
-                <li class="text-center text-muted small py-2">No new notifications</li>
-              </ul>
+              <!-- Dropdown Content -->
+              <div
+                class="absolute right-0 mt-3 w-72 bg-white rounded-2xl shadow-2xl border border-gray-100 opacity-0 invisible group-focus-within:opacity-100 group-focus-within:visible transition-all z-50 text-left overflow-hidden"
+                id="notif-dropdown-menu">
+                <div class="p-4 border-b border-gray-50 bg-gray-50">
+                  <h6 class="font-bold text-primary">Notifications</h6>
+                </div>
+                <ul class="max-h-80 overflow-y-auto p-2" id="notif-list">
+                  <li class="text-center text-gray-400 py-6 text-sm italic">No new notifications</li>
+                </ul>
+              </div>
             </div>
           </div>
-          <button class="btn btn-primary-custom me-2 px-4 shadow-sm" data-bs-toggle="modal" data-bs-target="#askModal" data-i18n="comm_ask_btn">Ask a Question</button>
-          <button class="btn btn-outline-danger px-4 shadow-sm" id="logout-btn">Log Out</button>
-        </div>
 
-      </div>
-      <div class="col-lg-6 text-center mt-4 mt-lg-0">
-         <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5ee5?auto=format&fit=crop&q=80&w=800" alt="Doctors and professionals talking" class="img-fluid rounded-4 shadow-sm" style="max-height: 300px; object-fit: cover;">
-      </div>
-    </div>
+          <div class="relative z-10 mt-6">
+            <div
+              class="w-20 h-20 bg-accent text-primary text-2xl font-black rounded-3xl mx-auto mb-4 flex items-center justify-center border-4 border-white shadow-lg"
+              id="sidebar-avatar">?</div>
+            <h5 class="text-xl font-extrabold text-primary mb-1" id="sidebar-user-name">Guest</h5>
+            <p class="text-gray-400 text-sm mb-6">Family Caregiver</p>
 
-    <!-- Feed Section -->
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-        <h3 class="fw-bold mb-4" data-i18n="comm_feed_title">Recent Questions from Community</h3>
-        
-        <div id="posts-container">
-          <!-- Posts will be loaded dynamically via jQuery -->
-          <div class="text-center text-muted col-12 py-5" id="loading-indicator">
-            <div class="spinner-border text-primary-custom" role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div id="sidebar-auth-block" class="space-y-3">
+              <button
+                class="w-full bg-primary text-white font-bold py-3 rounded-xl shadow-lg shadow-primary/20 hover:bg-secondary transition-all"
+                onclick="openModal('loginModal')">Sign In</button>
+              <button
+                class="w-full bg-white border-2 border-gray-100 text-gray-500 font-bold py-2 rounded-xl hover:bg-gray-50 transition-all text-sm"
+                onclick="openModal('registerModal')">Create Account</button>
             </div>
-            <p class="mt-2">Loading posts from database...</p>
+
+            <div id="sidebar-stats-block" class="hidden border-t border-gray-100 pt-6 space-y-3">
+              <div class="flex justify-between items-center text-sm">
+                <span class="text-gray-400">Points</span>
+                <span class="font-black text-primary bg-primary/5 px-2 py-0.5 rounded-lg">120</span>
+              </div>
+              <div class="flex justify-between items-center text-sm">
+                <span class="text-gray-400">Contributions</span>
+                <span class="font-black text-secondary bg-secondary/5 px-2 py-0.5 rounded-lg">5</span>
+              </div>
+            </div>
           </div>
         </div>
 
-      </div>
-    </div>
+        <!-- Navigation Links -->
+        <nav class="mt-8 space-y-2">
+          <a href="index.html"
+            class="flex items-center gap-4 p-4 rounded-2xl text-gray-500 hover:bg-white hover:text-primary hover:shadow-lg transition-all font-semibold">
+            <span class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary"><i
+                class="fas fa-home"></i></span>
+            <span>Feed</span>
+          </a>
+          <a href="community.html"
+            class="flex items-center gap-4 p-4 rounded-2xl bg-white text-primary shadow-lg font-bold">
+            <span
+              class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/30"><i
+                class="fas fa-users"></i></span>
+            <span>Groups</span>
+          </a>
+          <a href="guide.html"
+            class="flex items-center gap-4 p-4 rounded-2xl text-gray-500 hover:bg-white hover:text-primary hover:shadow-lg transition-all font-semibold">
+            <span class="w-10 h-10 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary"><i
+                class="fas fa-book-open"></i></span>
+            <span>Resources</span>
+          </a>
+          <a href="self-test.html"
+            class="flex items-center gap-4 p-4 rounded-2xl text-gray-500 hover:bg-white hover:text-primary hover:shadow-lg transition-all font-semibold">
+            <span class="w-10 h-10 bg-danger/10 rounded-xl flex items-center justify-center text-danger"><i
+                class="fas fa-heartbeat"></i></span>
+            <span>Health Check</span>
+          </a>
+          <div id="sidebar-logout-link" class="hidden pt-4 border-t border-gray-100 mt-4">
+            <a href="#"
+              class="flex items-center gap-4 p-4 rounded-2xl text-red-400 hover:bg-red-50 transition-all font-bold"
+              id="logout-btn-sidebar">
+              <i class="fas fa-sign-out-alt ml-3"></i>
+              <span>Log Out</span>
+            </a>
+          </div>
+        </nav>
+      </aside>
 
+      <!-- Main Feed -->
+      <section class="lg:col-span-6 space-y-6">
+        <!-- Post Creator Box -->
+        <div
+          class="bg-white rounded-3xl shadow-xl shadow-gray-200/40 p-6 flex items-center gap-4 border border-gray-50">
+          <div
+            class="w-12 h-12 bg-accent text-primary font-black rounded-2xl flex items-center justify-center flex-shrink-0"
+            id="creator-avatar">?</div>
+          <button id="whats-on-your-mind-btn"
+            class="flex-grow bg-gray-50 hover:bg-gray-100 text-left px-6 py-3 rounded-2xl text-gray-400 font-medium transition-all post-creator-input">
+            What's on your mind?
+          </button>
+        </div>
+
+        <!-- Feed Header -->
+        <div class="flex justify-between items-center px-2">
+          <h2 class="text-2xl font-extrabold text-primary">Recent Questions</h2>
+          <div class="relative group">
+            <button class="text-gray-400 font-bold text-sm flex items-center gap-2 hover:text-primary transition-all">
+              Sort by: Newest <i class="fas fa-chevron-down text-[10px]"></i>
+            </button>
+            <div
+              class="absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-2xl border border-gray-50 opacity-0 invisible group-focus-within:opacity-100 group-focus-within:visible transition-all z-20 overflow-hidden">
+              <a href="#"
+                class="block px-4 py-2 text-sm text-primary font-bold bg-primary/5 border-l-4 border-primary">Newest</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 transition-all">Popular</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 transition-all">Unanswered</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Posts Container -->
+        <div id="posts-container" class="space-y-6">
+          <div class="bg-white rounded-4xl p-20 text-center shadow-xl shadow-gray-100" id="loading-indicator">
+            <div class="inline-block w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin">
+            </div>
+            <p class="mt-4 text-gray-400 font-bold uppercase tracking-widest text-xs">Connecting to community...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Sidebar -->
+      <aside class="lg:col-span-3 sticky top-24 hidden lg:block space-y-8">
+        <!-- Suggested Professionals -->
+
+
+        <!-- Community Rules -->
+        <div
+          class="bg-gradient-to-br from-primary to-primary/80 rounded-3xl shadow-xl shadow-primary/20 p-8 text-white">
+          <h6 class="text-lg font-black mb-6">Community Rules</h6>
+          <ol class="space-y-4 text-sm font-medium opacity-90">
+            <li class="flex gap-3 items-start"><span class="bg-white/20 px-2 rounded">1</span> Be kind and supportive
+            </li>
+            <li class="flex gap-3 items-start"><span class="bg-white/20 px-2 rounded">2</span> Respect privacy</li>
+            <li class="flex gap-3 items-start"><span class="bg-white/20 px-2 rounded">3</span> Advice only, no diagnosis
+            </li>
+            <li class="flex gap-3 items-start"><span class="bg-white/20 px-2 rounded">4</span> Report issues</li>
+          </ol>
+        </div>
+
+        <div class="px-4 text-[10px] text-gray-400 font-bold uppercase tracking-widest leading-loose">
+          <p>© 2026 CareSupport Platform</p>
+          <div class="flex gap-4 mt-2">
+            <a href="#" class="hover:text-primary transition-colors">Privacy</a>
+            <a href="#" class="hover:text-primary transition-colors">Terms</a>
+            <a href="#" class="hover:text-primary transition-colors">Cookies</a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
   </main>
 
+  <!-- Modals (Vanilla custom implementation) -->
+
   <!-- Login Modal -->
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content rounded-4 border-0">
-        <div class="modal-header border-0 pb-0">
-          <h5 class="modal-title fw-bold">Sign In</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body pb-4">
-          <form id="login-form">
-            <div class="mb-3">
-              <label class="form-label text-muted">Email address</label>
-              <input type="email" class="form-control bg-light border-0" id="login-email" required>
-            </div>
-            <div class="mb-4">
-              <label class="form-label text-muted">Password</label>
-              <input type="password" class="form-control bg-light border-0" id="login-password" required>
-            </div>
-            <button type="submit" class="btn btn-primary-custom w-100 mb-2" id="login-submit-btn">Login</button>
-            <div id="login-error" class="text-danger small text-center fw-bold mt-2" style="display: none;">Invalid email or password.</div>
-          </form>
-        </div>
+  <div class="custom-modal-overlay" id="loginModal">
+    <div class="custom-modal-content p-8">
+      <button type="button" class="modal-close-btn" onclick="closeModal('loginModal')">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="mb-8">
+        <h5 class="text-3xl font-black text-primary">Sign In</h5>
       </div>
+      <form id="login-form" class="space-y-6">
+        <div>
+          <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Email address</label>
+          <input type="email"
+            class="w-full bg-gray-50 border-2 border-transparent focus:border-primary/20 focus:bg-white rounded-2xl px-6 py-4 transition-all outline-none"
+            id="login-email" required>
+        </div>
+        <div>
+          <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Password</label>
+          <input type="password"
+            class="w-full bg-gray-50 border-2 border-transparent focus:border-primary/20 focus:bg-white rounded-2xl px-6 py-4 transition-all outline-none"
+            id="login-password" required>
+        </div>
+        <button type="submit"
+          class="w-full bg-primary text-white font-black py-4 rounded-2xl shadow-xl shadow-primary/20 hover:bg-secondary transition-all text-lg mb-4"
+          id="login-submit-btn">Login</button>
+        <div id="login-error" class="text-danger text-sm text-center font-bold hidden mb-4">Invalid email or password.
+        </div>
+        <div class="text-center">
+          <p class="text-gray-400 text-sm font-medium">
+            <span data-i18n="comm_dont_have_account">Don't have an account?</span>
+            <button type="button" class="text-primary font-bold hover:underline"
+              onclick="closeModal('loginModal'); openModal('registerModal');" data-i18n="comm_register_now">Register
+              now</button>
+          </p>
+        </div>
+      </form>
     </div>
   </div>
 
   <!-- Register Modal -->
-  <div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content rounded-4 border-0">
-        <div class="modal-header border-0 pb-0">
-          <h5 class="modal-title fw-bold">Create an Account</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body pb-4">
-          <form id="register-form">
-            <div class="mb-3">
-              <label class="form-label text-muted">Full Name / Display Name</label>
-              <input type="text" class="form-control bg-light border-0" id="reg-name" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label text-muted">Email address</label>
-              <input type="email" class="form-control bg-light border-0" id="reg-email" required>
-            </div>
-            <div class="mb-4">
-              <label class="form-label text-muted">Password</label>
-              <input type="password" class="form-control bg-light border-0" id="reg-password" required minlength="6">
-            </div>
-            <button type="submit" class="btn btn-primary-custom w-100 mb-2" id="reg-submit-btn">Create Account</button>
-            <div id="reg-error" class="text-danger small text-center fw-bold mt-2" style="display: none;">Oops! Something went wrong.</div>
-          </form>
-        </div>
+  <div class="custom-modal-overlay" id="registerModal">
+    <div class="custom-modal-content p-8">
+      <button type="button" class="modal-close-btn" onclick="closeModal('registerModal')">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="mb-8">
+        <h5 class="text-3xl font-black text-primary">Create Account</h5>
       </div>
-    </div>
-  </div>
-
-  <!-- Post Detail Modal -->
-  <div class="modal fade" id="postDetailModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-      <div class="modal-content rounded-4 border-0 shadow">
-        <div class="modal-header border-0 pb-3 pt-4 px-4 shadow-sm align-items-center z-1 bg-white">
-          <h5 class="modal-title fw-bold">Conversation</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <form id="register-form" class="space-y-6">
+        <div>
+          <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Full Name</label>
+          <input type="text"
+            class="w-full bg-gray-50 border-2 border-transparent focus:border-primary/20 focus:bg-white rounded-2xl px-6 py-4 transition-all outline-none"
+            id="reg-name" required>
         </div>
-        <div class="modal-body bg-light p-0">
-          <div id="post-detail-content" class="p-0">
-            <!-- Dynamically populated -->
-          </div>
+        <div>
+          <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Email address</label>
+          <input type="email"
+            class="w-full bg-gray-50 border-2 border-transparent focus:border-primary/20 focus:bg-white rounded-2xl px-6 py-4 transition-all outline-none"
+            id="reg-email" required>
         </div>
-      </div>
+        <div>
+          <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Password</label>
+          <input type="password"
+            class="w-full bg-gray-50 border-2 border-transparent focus:border-primary/20 focus:bg-white rounded-2xl px-6 py-4 transition-all outline-none"
+            id="reg-password" required>
+        </div>
+        <button type="submit"
+          class="w-full bg-secondary text-white font-black py-4 rounded-2xl shadow-xl shadow-secondary/20 hover:bg-primary transition-all text-lg"
+          id="reg-submit-btn">Sign Up</button>
+        <div id="reg-error" class="text-danger text-sm text-center font-bold hidden mt-4">Registration failed. Try
+          again.</div>
+      </form>
     </div>
   </div>
 
   <!-- Ask Modal -->
-  <div class="modal fade" id="askModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content rounded-4 border-0">
-        <div class="modal-header border-0 pb-0">
-          <h5 class="modal-title fw-bold" data-i18n="comm_modal_title">Submit your Question</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="custom-modal-overlay" id="askModal">
+    <div class="custom-modal-content p-8">
+      <button type="button" class="modal-close-btn" onclick="closeModal('askModal')">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="mb-4">
+        <h5 class="text-3xl font-black text-primary" data-i18n="comm_modal_title">Post a Question</h5>
+        <p class="text-gray-400 font-medium mt-2" data-i18n="comm_modal_desc">Describe your situation. A verified expert
+          will reply within 48 hours.</p>
+      </div>
+      <form id="ask-form" class="space-y-6">
+        <div>
+          <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Question Title</label>
+          <input type="text"
+            class="w-full bg-gray-50 border-2 border-transparent focus:border-primary/20 focus:bg-white rounded-2xl px-6 py-4 transition-all outline-none font-bold"
+            id="post-title" placeholder="Summary of your concern" required>
         </div>
-        <div class="modal-body pb-4">
-          <p class="text-muted small" data-i18n="comm_modal_desc">Describe your situation and get advice from a verified professional within 48 hours.</p>
-          <form id="ask-form">
-            <div class="mb-3">
-              <label class="form-label fw-bold">Question Title</label>
-              <input type="text" class="form-control bg-light border-0" id="post-title" placeholder="Brief summary of issue" required>
-            </div>
-            <div class="mb-4">
-              <label class="form-label fw-bold">Details</label>
-              <textarea class="form-control bg-light border-0" id="post-content" rows="4" placeholder="Type your situation here..." required style="resize: none;"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary-custom w-100" data-i18n="comm_modal_submit" id="post-submit-btn">Post Question</button>
-          </form>
+        <div>
+          <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Details</label>
+          <textarea
+            class="w-full bg-gray-50 border-2 border-transparent focus:border-primary/20 focus:bg-white rounded-2xl px-6 py-4 transition-all outline-none h-40 resize-none font-medium"
+            id="post-content" placeholder="Type your situation here..." required></textarea>
         </div>
+        <div class="flex items-center justify-between gap-4">
+          <button type="button"
+            class="flex items-center gap-2 text-gray-400 hover:text-primary transition-all font-bold text-sm">
+            <i class="fas fa-image text-lg"></i>
+            <span data-i18n="comm_add_image">Add Image</span>
+          </button>
+          <div class="flex gap-3">
+            <button type="button" class="px-6 py-3 rounded-xl text-gray-400 font-bold hover:bg-gray-50 transition-all"
+              onclick="closeModal('askModal')" data-i18n="comm_cancel">Cancel</button>
+            <button type="submit"
+              class="bg-primary text-white font-black px-8 py-3 rounded-xl shadow-lg shadow-primary/20 hover:bg-secondary transition-all"
+              id="post-submit-btn" data-i18n="comm_modal_submit">Post Question</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Post Detail Modal -->
+  <div class="custom-modal-overlay" id="postDetailModal">
+    <div class="custom-modal-content !max-w-6xl !w-[95%] !bg-transparent !shadow-none">
+      <button type="button" class="modal-close-btn !fixed !top-8 !right-8 lg:!right-12 shadow-2xl bg-white/20 backdrop-blur-xl text-white hover:bg-white hover:text-primary transition-all z-[100]" onclick="closeModal('postDetailModal')">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+      <div id="post-detail-content" class="bg-white rounded-5xl overflow-hidden shadow-2xl">
+        <!-- Dynamically populated by community.js -->
       </div>
     </div>
   </div>
 
-  <!-- jQuery -->
+  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JS -->
   <script src="translations.js"></script>
   <script src="script.js"></script>
   <script src="community.js"></script>
+  <!-- Delete Confirmation Modal -->
+  <div class="custom-modal-overlay" id="deleteConfirmModal">
+    <div class="custom-modal-content !max-w-md p-10 text-center">
+      <div class="w-20 h-20 bg-red-50 text-red-500 rounded-3xl flex items-center justify-center mx-auto mb-6 text-3xl">
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
+      <h3 class="text-2xl font-black text-gray-800 mb-2" data-t="comm_delete_confirm_title">Delete Post?</h3>
+      <p class="text-gray-500 mb-8 font-medium leading-relaxed" data-t="comm_delete_confirm_msg">Are you sure you want to delete this post? This action cannot be undone.</p>
+      <div class="flex gap-4">
+        <button onclick="closeModal('deleteConfirmModal')" class="flex-grow py-4 bg-gray-100 text-gray-500 font-black rounded-2xl hover:bg-gray-200 transition-all" data-t="comm_cancel">Cancel</button>
+        <button id="confirmDeleteBtn" class="flex-grow py-4 bg-red-500 text-white font-black rounded-2xl hover:bg-red-600 transition-all shadow-lg shadow-red-200" data-t="comm_confirm">Confirm Delete</button>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>

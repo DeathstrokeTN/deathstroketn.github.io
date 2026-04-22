@@ -1,172 +1,566 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caregiver Guide - CareSupport</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Caregiver Guide - CareSupport | Practical Advice & Resources</title>
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2b6777',
+            secondary: '#52ab98',
+            accent: '#c8d8e4',
+            danger: '#e53e3e',
+            warning: '#f59e0b',
+            success: '#10b981',
+            bg: '#f2f2f2',
+          },
+          animation: {
+            'float': 'float 3s ease-in-out infinite',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <span class="fs-4">💙 CareSupport</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<body class="bg-gradient-to-br from-bg via-white to-accent/20 text-gray-900 font-['Inter'] antialiased">
 
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav align-items-center">
-          <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav_home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="conditions.html" data-i18n="nav_conditions">Conditions</a></li>
-          <li class="nav-item"><a class="nav-link active" href="guide.html" data-i18n="nav_guide">Caregiver Guide</a></li>
-          <li class="nav-item"><a class="nav-link" href="community.html" data-i18n="nav_community">Community</a></li>
-          <li class="nav-item"><a class="nav-link text-danger fw-bold" href="emergency.html" data-i18n="nav_emergency">🚨 Emergency</a></li>
-          <li class="nav-item"><a class="nav-link" href="self-test.html" data-i18n="nav_test">Self-Test</a></li>
-          <li class="nav-item dropdown ms-lg-3 mt-2 mt-lg-0">
-            <a class="nav-link dropdown-toggle btn btn-outline-secondary btn-sm px-3" href="#" role="button" data-bs-toggle="dropdown" data-i18n="nav_language">
-              🌐 Language
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
-              <li><a class="dropdown-item lang-switch" href="#" data-lang="en">English</a></li>
-              <li><a class="dropdown-item lang-switch" href="#" data-lang="fr">Français</a></li>
-              <li><a class="dropdown-item lang-switch" href="#" data-lang="ar">العربية</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+  <!-- Navbar Placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Page Header with Enhanced Design -->
+  <header class="relative bg-gradient-to-br from-primary/5 via-white to-secondary/5 py-20 mb-12 overflow-hidden">
+    <!-- Decorative Elements -->
+    <div class="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
     </div>
-  </nav>
+    <div
+      class="absolute bottom-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2">
+    </div>
 
-  <!-- Page Header -->
-  <header class="bg-light py-5 mb-5 border-bottom">
-    <div class="container text-center">
-      <h1 class="fw-bold" style="color: var(--primary-color)" data-i18n="guide_title">Caregiver Guide: What should I do?</h1>
-      <p class="lead text-muted" data-i18n="guide_subtitle">Practical, actionable advice for difficult situations.</p>
-      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb046ebf?auto=format&fit=crop&q=80&w=800" class="img-fluid rounded-4 mt-4 shadow-sm" style="max-height: 300px; object-fit: cover; width: 100%; max-width: 800px;" alt="Caregiving support">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center max-w-4xl mx-auto">
+        <!-- Badge -->
+        <span
+          class="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-semibold mb-6 animate-pulse-slow"
+          data-i18n="guide_badge">
+          📋 Essential Resource
+        </span>
+
+        <h1
+          class="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-6"
+          data-i18n="guide_title">
+          Caregiver Guide: What Should I Do?
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="guide_subtitle">
+          Practical, actionable advice for difficult situations. You're not alone in this journey.
+        </p>
+
+        <!-- Quick Stats -->
+        <div class="flex flex-wrap justify-center gap-6 mb-10">
+          <div class="bg-white/80 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-lg border border-white">
+            <span class="text-2xl font-bold text-primary" data-i18n="guide_stat_count1">53M+</span>
+            <span class="text-sm text-gray-600 block" data-i18n="guide_stat_label1">Caregivers in the US</span>
+          </div>
+          <div class="bg-white/80 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-lg border border-white">
+            <span class="text-2xl font-bold text-secondary" data-i18n="guide_stat_count2">24/7</span>
+            <span class="text-sm text-gray-600 block" data-i18n="guide_stat_label2">Support Available</span>
+          </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto relative group">
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500">
+          </div>
+          <img src="img/caregiver-support-042722-FBLI.jpg"
+            class="w-full h-96 object-cover rounded-3xl shadow-2xl relative z-10 border-4 border-white/80"
+            alt="Caregiving support">
+        </div>
+      </div>
     </div>
   </header>
 
-  <main class="container mb-5">
-    
-    <div class="row mb-4">
-      <div class="col-12 text-center mb-5">
-        <h2 class="section-title" data-i18n="guide_interactive_title">Interactive Problem Solver</h2>
-        <p class="text-muted" data-i18n="guide_interactive_desc">Click on a situation below to see what to do.</p>
+  <main class="container mx-auto px-4 pb-24">
+
+    <!-- Interactive Problem Solver Section -->
+    <div class="text-center mb-12">
+      <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4"
+        data-i18n="guide_interactive_badge">
+        🎯 Interactive Tools
+      </span>
+      <h2 class="text-4xl font-extrabold text-primary mb-4" data-i18n="guide_interactive_title">
+        Interactive Problem Solver
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n="guide_interactive_desc">
+        Click on any situation below to reveal expert guidance and actionable solutions.
+      </p>
+    </div>
+
+    <!-- Enhanced Interactive Grid -->
+    <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
+
+      <!-- Interactive Item 1 - Enhanced -->
+      <div
+        class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer group interactive-box border border-gray-100 hover:border-secondary/30 hover:-translate-y-1">
+        <div class="flex items-start gap-4">
+          <div class="text-5xl group-hover:scale-110 transition-transform duration-300">😠</div>
+          <div class="flex-1">
+            <h4 class="text-2xl font-bold text-primary mb-3" data-i18n="guide_q1_title">
+              Patient is Aggressive or Angry
+            </h4>
+            <div class="flex gap-2 mb-3">
+              <span class="px-2 py-1 bg-danger/10 text-danger text-xs rounded-full font-semibold">High Priority</span>
+              <span class="px-2 py-1 bg-warning/10 text-warning text-xs rounded-full font-semibold">Common</span>
+            </div>
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed" data-i18n="guide_q1_desc">
+              They are yelling, agitated, or refusing to cooperate.
+            </p>
+          </div>
+        </div>
+        <div class="hidden-advice border-t-2 border-secondary/20 pt-6 mt-2">
+          <div class="bg-secondary/5 p-4 rounded-xl mb-4">
+            <p class="text-sm font-semibold text-secondary mb-2" data-i18n="guide_insight_label">🎯 Key Insight</p>
+            <p class="text-gray-700" data-i18n="guide_q1_insight">Anger is often a sign of fear, pain, or loss of control. Address the underlying
+              emotion, not the behavior.</p>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3" data-i18n="guide_q1_a1">
+              <span class="text-success font-bold text-xl">✅</span>
+              <div>
+                <p><strong class="text-primary">Stay calm:</strong> <span class="text-gray-700">Do not raise your voice.
+                    Your calmness can defuse the situation.</span></p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3" data-i18n="guide_q1_a2">
+              <span class="text-success font-bold text-xl">✅</span>
+              <div>
+                <p><strong class="text-primary">Step back:</strong> <span class="text-gray-700">Make sure you are at a
+                    safe distance. Give them physical space.</span></p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3" data-i18n="guide_q1_a3">
+              <span class="text-success font-bold text-xl">✅</span>
+              <div>
+                <p><strong class="text-primary">Acknowledge feelings:</strong> <span class="text-gray-700">"I see you
+                    are very upset right now."</span></p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3" data-i18n="guide_q1_a4">
+              <span class="text-danger font-bold text-xl">❌</span>
+              <div>
+                <p><strong class="text-primary">Do not argue:</strong> <span class="text-gray-700">Logic rarely works
+                    during an emotional outburst.</span></p>
+              </div>
+            </li>
+          </ul>
+          <div class="mt-4 pt-4 border-t border-gray-200">
+            <p class="text-sm text-gray-500" data-i18n="guide_q1_emergency"><span class="font-semibold">🚨 Emergency:</span> If you feel unsafe, call
+              911 or a crisis hotline immediately.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Item 2 - Enhanced -->
+      <div
+        class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer group interactive-box border border-gray-100 hover:border-secondary/30 hover:-translate-y-1">
+        <div class="flex items-start gap-4">
+          <div class="text-5xl group-hover:scale-110 transition-transform duration-300">💊</div>
+          <div class="flex-1">
+            <h4 class="text-2xl font-bold text-primary mb-3" data-i18n="guide_q2_title">
+              Patient Refuses Medication
+            </h4>
+            <div class="flex gap-2 mb-3">
+              <span class="px-2 py-1 bg-warning/10 text-warning text-xs rounded-full font-semibold">Common</span>
+              <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full font-semibold">Management</span>
+            </div>
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed" data-i18n="guide_q2_desc">
+              They spit it out, hide it, or say they don't need it.
+            </p>
+          </div>
+        </div>
+        <div class="hidden-advice border-t-2 border-secondary/20 pt-6 mt-2">
+          <div class="bg-secondary/5 p-4 rounded-xl mb-4">
+            <p class="text-sm font-semibold text-secondary mb-2" data-i18n="guide_pro_tip_label">💡 Pro Tip</p>
+            <p class="text-gray-700" data-i18n="guide_q2_tip">Never force medication. Contact their healthcare provider if refusal persists
+              beyond 24 hours.</p>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3" data-i18n="guide_q2_a1">
+              <span class="text-success font-bold text-xl">✅</span>
+              <div>
+                <p><strong class="text-primary">Find out why:</strong> <span class="text-gray-700">Ask calmly, "Do these
+                    pills make you feel sick?"</span></p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3" data-i18n="guide_q2_a2">
+              <span class="text-success font-bold text-xl">✅</span>
+              <div>
+                <p><strong class="text-primary">Change timing:</strong> <span class="text-gray-700">Try offering it when
+                    they are more relaxed.</span></p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3" data-i18n="guide_q2_a3">
+              <span class="text-success font-bold text-xl">✅</span>
+              <div>
+                <p><strong class="text-primary">Give choices:</strong> <span class="text-gray-700">"Water or
+                    juice?"</span></p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3" data-i18n="guide_q2_a4">
+              <span class="text-success font-bold text-xl">✅</span>
+              <div>
+                <p><strong class="text-primary">Disguise if needed:</strong> <span class="text-gray-700">Check with
+                    doctor first - some meds can be crushed in food.</span></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Interactive Item 3 - Enhanced -->
+      <div
+        class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer group interactive-box border border-gray-100 hover:border-secondary/30 hover:-translate-y-1">
+        <div class="flex items-start gap-4">
+          <div class="text-5xl group-hover:scale-110 transition-transform duration-300">😔</div>
+          <div class="flex-1">
+            <h4 class="text-2xl font-bold text-primary mb-3" data-i18n="guide_q3_title">
+              Patient is Withdrawn
+            </h4>
+            <div class="flex gap-2 mb-3">
+              <span class="px-2 py-1 bg-danger/10 text-danger text-xs rounded-full font-semibold">Concerning</span>
+              <span class="px-2 py-1 bg-secondary/10 text-secondary text-xs rounded-full font-semibold">Emotional</span>
+            </div>
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed" data-i18n="guide_q3_desc">
+              They won't get out of bed, speak, or eat.
+            </p>
+          </div>
+        </div>
+        <div class="hidden-advice border-t-2 border-secondary/20 pt-6 mt-2">
+          <div class="bg-warning/5 p-4 rounded-xl mb-4 border-l-4 border-warning">
+            <p class="text-sm font-semibold text-warning mb-2" data-i18n="guide_important_label">⚠️ Important Note</p>
+            <p class="text-gray-700" data-i18n="guide_q3_note">Depression is common in chronic illness. If symptoms persist >2 weeks, consult
+              their doctor.</p>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3" data-i18n="guide_q3_a1">
+              <span class="text-success font-bold text-xl">✅</span>
+              <div>
+                <p><strong class="text-primary">Just be there:</strong> <span class="text-gray-700">Sit quietly with
+                    them. Presence is supportive.</span></p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3" data-i18n="guide_q3_a2">
+              <span class="text-success font-bold text-xl">✅</span>
+              <div>
+                <p><strong class="text-primary">Offer tiny goals:</strong> <span class="text-gray-700">"Help me fold
+                    these two towels."</span></p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3" data-i18n="guide_q3_a3">
+              <span class="text-success font-bold text-xl">✅</span>
+              <div>
+                <p><strong class="text-primary">Use gentle touch:</strong> <span class="text-gray-700">A hand massage or
+                    brushing hair can be comforting.</span></p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3" data-i18n="guide_q3_a4">
+              <span class="text-success font-bold text-xl">✅</span>
+              <div>
+                <p><strong class="text-primary">Bring in memories:</strong> <span class="text-gray-700">Look at old
+                    photos or play favorite music.</span></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Interactive Item 4 - Enhanced -->
+      <div
+        class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer group interactive-box border border-gray-100 hover:border-secondary/30 hover:-translate-y-1">
+        <div class="flex items-start gap-4">
+          <div class="text-5xl group-hover:scale-110 transition-transform duration-300">🗣️</div>
+          <div class="flex-1">
+            <h4 class="text-2xl font-bold text-primary mb-3" data-i18n="guide_q4_title">
+              Communication Breakdown
+            </h4>
+            <div class="flex gap-2 mb-3">
+              <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full font-semibold">Frequent</span>
+              <span class="px-2 py-1 bg-secondary/10 text-secondary text-xs rounded-full font-semibold">Cognitive</span>
+            </div>
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed" data-i18n="guide_q4_desc">
+              The words don't make sense, creating frustration.
+            </p>
+          </div>
+        </div>
+        <div class="hidden-advice border-t-2 border-secondary/20 pt-6 mt-2">
+          <div class="bg-primary/5 p-4 rounded-xl mb-4">
+            <p class="text-sm font-semibold text-primary mb-2" data-i18n="guide_strategy_label">🗝️ Key Strategy</p>
+            <p class="text-gray-700" data-i18n="guide_q4_strategy">Focus on the emotion behind the words, not the exact meaning. Validate their
+              feelings.</p>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3" data-i18n="guide_q4_a1">
+              <span class="text-success font-bold text-xl">✅</span>
+              <div>
+                <p><strong class="text-primary">Yes/No questions:</strong> <span class="text-gray-700">"Are you hungry?"
+                    instead of "What do you want?"</span></p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3" data-i18n="guide_q4_a2">
+              <span class="text-success font-bold text-xl">✅</span>
+              <div>
+                <p><strong class="text-primary">Use visual aids:</strong> <span class="text-gray-700">Point to objects
+                    or pictures.</span></p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3" data-i18n="guide_q4_a3">
+              <span class="text-success font-bold text-xl">✅</span>
+              <div>
+                <p><strong class="text-primary">Speak slowly and clearly:</strong> <span class="text-gray-700">One idea
+                    at a time.</span></p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3" data-i18n="guide_q4_a4">
+              <span class="text-success font-bold text-xl">✅</span>
+              <div>
+                <p><strong class="text-primary">Write it down:</strong> <span class="text-gray-700">Simple written notes
+                    can bridge communication gaps.</span></p>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <!-- Interactive Grid -->
-    <div class="row g-4">
-      
-      <!-- Interactive Item 1 -->
-      <div class="col-lg-6">
-        <div class="interactive-box shadow-sm">
-          <h4 class="fw-bold d-flex align-items-center" data-i18n="guide_q1_title">
-            <span class="me-3 fs-3">😠</span> Patient is aggressive or angry
-          </h4>
-          <p class="text-muted mb-0" data-i18n="guide_q1_desc">They are yelling, agitated, or refusing to cooperate.</p>
-          <div class="hidden-advice">
-            <ul class="list-unstyled">
-              <li class="mb-2" data-i18n="guide_q1_a1">✅ <strong>Stay calm:</strong> Do not raise your voice. Your calmness can defuse the situation.</li>
-              <li class="mb-2" data-i18n="guide_q1_a2">✅ <strong>Step back:</strong> Make sure you are at a safe distance. Give them physical space.</li>
-              <li class="mb-2" data-i18n="guide_q1_a3">✅ <strong>Acknowledge feelings:</strong> "I see you are very upset right now."</li>
-              <li class="mb-2" data-i18n="guide_q1_a4">❌ <strong>Do not argue:</strong> Logic rarely works during an emotional outburst.</li>
-              <li data-i18n="guide_q1_a5">👉 <em>If you feel threatened, leave the room immediately and call for help.</em></li>
+    <!-- NEW: Daily Care Checklist Section -->
+    <section class="mb-20">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-10">
+          <span class="inline-block px-4 py-2 bg-success/10 text-success rounded-full text-sm font-semibold mb-4"
+            data-i18n="guide_daily_badge">
+            📋 Daily Essentials
+          </span>
+          <h3 class="text-3xl font-extrabold text-primary mb-4" data-i18n="guide_daily_title">Daily Care Checklist</h3>
+          <p class="text-lg text-gray-600" data-i18n="guide_daily_desc">A simple routine can reduce stress for both you and your loved one.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-gradient-to-br from-primary/5 to-white p-6 rounded-2xl border border-primary/20">
+            <div class="text-3xl mb-3">🌅</div>
+            <h4 class="text-xl font-bold text-primary mb-3" data-i18n="guide_morning_title">Morning Routine</h4>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex items-center gap-2" data-i18n="guide_morning_li1">✅ Check vital signs</li>
+              <li class="flex items-center gap-2" data-i18n="guide_morning_li2">✅ Morning medications</li>
+              <li class="flex items-center gap-2" data-i18n="guide_morning_li3">✅ Personal hygiene</li>
+              <li class="flex items-center gap-2" data-i18n="guide_morning_li4">✅ Nutritious breakfast</li>
+            </ul>
+          </div>
+
+          <div class="bg-gradient-to-br from-secondary/5 to-white p-6 rounded-2xl border border-secondary/20">
+            <div class="text-3xl mb-3">☀️</div>
+            <h4 class="text-xl font-bold text-secondary mb-3" data-i18n="guide_afternoon_title">Afternoon Care</h4>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex items-center gap-2" data-i18n="guide_afternoon_li1">✅ Light exercise/stretching</li>
+              <li class="flex items-center gap-2" data-i18n="guide_afternoon_li2">✅ Social engagement</li>
+              <li class="flex items-center gap-2" data-i18n="guide_afternoon_li3">✅ Hydration check</li>
+              <li class="flex items-center gap-2" data-i18n="guide_afternoon_li4">✅ Afternoon medications</li>
+            </ul>
+          </div>
+
+          <div class="bg-gradient-to-br from-accent/5 to-white p-6 rounded-2xl border border-accent/20">
+            <div class="text-3xl mb-3">🌙</div>
+            <h4 class="text-xl font-bold text-primary mb-3" data-i18n="guide_evening_title">Evening Wind-Down</h4>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex items-center gap-2" data-i18n="guide_evening_li1">✅ Evening medications</li>
+              <li class="flex items-center gap-2" data-i18n="guide_evening_li2">✅ Calming activities</li>
+              <li class="flex items-center gap-2" data-i18n="guide_evening_li3">✅ Bathroom routine</li>
+              <li class="flex items-center gap-2" data-i18n="guide_evening_li4">✅ Comfortable sleep setup</li>
             </ul>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Interactive Item 2 -->
-      <div class="col-lg-6">
-        <div class="interactive-box shadow-sm">
-          <h4 class="fw-bold d-flex align-items-center" data-i18n="guide_q2_title">
-            <span class="me-3 fs-3">💊</span> Patient refuses medication
-          </h4>
-          <p class="text-muted mb-0" data-i18n="guide_q2_desc">They spit it out, hide it, or say they don't need it.</p>
-          <div class="hidden-advice">
-            <ul class="list-unstyled">
-              <li class="mb-2" data-i18n="guide_q2_a1">✅ <strong>Find out why:</strong> Ask calmly, "Do these pills make you feel sick?" or "Are they hard to swallow?"</li>
-              <li class="mb-2" data-i18n="guide_q2_a2">✅ <strong>Change the timing:</strong> Try offering it when they are more relaxed, along with a favorite snack or drink.</li>
-              <li class="mb-2" data-i18n="guide_q2_a3">✅ <strong>Give choices:</strong> "Would you like to take your pill with water or juice?"</li>
-              <li class="mb-2" data-i18n="guide_q2_a4">❌ <strong>Do not force:</strong> Never force medicine into their mouth. Report consistent refusal to the doctor.</li>
+    <!-- NEW: Warning Signs Section -->
+    <section class="mb-20">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-gradient-to-r from-danger/10 to-warning/10 p-8 rounded-3xl border-2 border-danger/30">
+          <div class="flex items-start gap-4">
+            <div class="text-4xl">🚨</div>
+            <div>
+              <h3 class="text-2xl font-bold text-danger mb-4" data-i18n="guide_emerg_title">When to Call Emergency Services Immediately</h3>
+              <div class="grid md:grid-cols-2 gap-4">
+                <ul class="space-y-2">
+                  <li class="flex items-center gap-2" data-i18n="guide_emerg_li1">🔴 Chest pain or pressure</li>
+                  <li class="flex items-center gap-2" data-i18n="guide_emerg_li2">🔴 Difficulty breathing</li>
+                  <li class="flex items-center gap-2" data-i18n="guide_emerg_li3">🔴 Sudden confusion or agitation</li>
+                  <li class="flex items-center gap-2" data-i18n="guide_emerg_li4">🔴 Severe bleeding</li>
+                </ul>
+                <ul class="space-y-2">
+                  <li class="flex items-center gap-2" data-i18n="guide_emerg_li5">🔴 Loss of consciousness</li>
+                  <li class="flex items-center gap-2" data-i18n="guide_emerg_li6">🔴 Signs of stroke (FAST)</li>
+                  <li class="flex items-center gap-2" data-i18n="guide_emerg_li7">🔴 Seizure lasting >5 minutes</li>
+                  <li class="flex items-center gap-2" data-i18n="guide_emerg_li8">🔴 Severe pain</li>
+                </ul>
+              </div>
+              <div class="mt-6 p-4 bg-white rounded-xl">
+                <p class="font-semibold" data-i18n="guide_emerg_contact_title">📞 Emergency Contacts Should Be Posted:</p>
+                <p class="text-gray-700" data-i18n="guide_emerg_contact_desc">• Near the phone • On the refrigerator • In your phone's emergency contacts</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Caregiver Stress Management Section -->
+    <section class="mt-24 pt-16 border-t-2 border-secondary/30">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-semibold mb-4"
+            data-i18n="guide_stress_badge">
+            💝 Self-Care is Essential
+          </span>
+          <h3
+            class="text-4xl font-extrabold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-6"
+            data-i18n="guide_stress_title">
+            Managing Your Own Stress
+          </h3>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-i18n="guide_stress_desc">
+            You cannot pour from an empty cup. If you burn out, you won't be able to provide care. Your wellbeing
+            matters.
+          </p>
+        </div>
+
+        <!-- Stress Warning Signs -->
+        <div class="bg-white rounded-3xl p-8 mb-8 shadow-lg border border-gray-100">
+          <h4 class="text-xl font-bold text-primary mb-4" data-i18n="guide_burnout_title">⚠️ Warning Signs of Caregiver Burnout</h4>
+          <div class="grid md:grid-cols-2 gap-4">
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2" data-i18n="guide_burnout_li1">😴 Constant exhaustion</li>
+              <li class="flex items-center gap-2" data-i18n="guide_burnout_li2">😤 Increased irritability</li>
+              <li class="flex items-center gap-2" data-i18n="guide_burnout_li3">😔 Feeling hopeless</li>
+              <li class="flex items-center gap-2" data-i18n="guide_burnout_li4">💤 Sleep problems</li>
+            </ul>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2" data-i18n="guide_burnout_li5">🏥 Getting sick more often</li>
+              <li class="flex items-center gap-2" data-i18n="guide_burnout_li6">📉 Loss of interest in activities</li>
+              <li class="flex items-center gap-2" data-i18n="guide_burnout_li7">🍷 Increased substance use</li>
+              <li class="flex items-center gap-2" data-i18n="guide_burnout_li8">😟 Anxiety about the future</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-white via-secondary/5 to-primary/5 rounded-[3rem] p-10 md:p-16 shadow-2xl border border-secondary/30">
+          <h5 class="text-2xl font-bold text-primary mb-8 pb-4 border-b-2 border-secondary/30"
+            data-i18n="guide_stress_rules_title">
+            The 3 Rules of Caregiver Survival:
+          </h5>
+          <ol class="space-y-8">
+            <li class="flex gap-6 group" data-i18n="guide_stress_r1">
+              <span
+                class="text-6xl font-black text-secondary/20 group-hover:text-secondary/30 transition-colors flex-shrink-0">01</span>
+              <div class="bg-white/50 p-6 rounded-2xl flex-1">
+                <p class="text-xl text-gray-700 leading-relaxed">
+                  <strong class="text-primary text-2xl block mb-2">Accept that you are human.</strong>
+                  You will get frustrated and tired. This is normal. Forgive yourself. You're doing an incredibly
+                  difficult job.
+                </p>
+              </div>
+            </li>
+            <li class="flex gap-6 group" data-i18n="guide_stress_r2">
+              <span
+                class="text-6xl font-black text-secondary/20 group-hover:text-secondary/30 transition-colors flex-shrink-0">02</span>
+              <div class="bg-white/50 p-6 rounded-2xl flex-1">
+                <p class="text-xl text-gray-700 leading-relaxed">
+                  <strong class="text-primary text-2xl block mb-2">Ask for help specifically.</strong>
+                  Instead of "I need help," say: "Can you sit with Mom for 2 hours on Thursday so I can go to the
+                  store?" Be specific.
+                </p>
+              </div>
+            </li>
+            <li class="flex gap-6 group" data-i18n="guide_stress_r3">
+              <span
+                class="text-6xl font-black text-secondary/20 group-hover:text-secondary/30 transition-colors flex-shrink-0">03</span>
+              <div class="bg-white/50 p-6 rounded-2xl flex-1">
+                <p class="text-xl text-gray-700 leading-relaxed">
+                  <strong class="text-primary text-2xl block mb-2">Keep one hobby alive.</strong>
+                  Continue doing at least one thing for yourself every week—reading, gardening, calling a friend. This
+                  is non-negotiable.
+                </p>
+              </div>
+            </li>
+          </ol>
+
+          <!-- Additional Self-Care Tips -->
+          <div class="mt-10 p-6 bg-white rounded-2xl">
+            <h6 class="font-bold text-primary mb-3 text-lg" data-i18n="guide_relief_title">💆 Quick Stress Relief Techniques</h6>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="text-center p-3">
+                <div class="text-3xl mb-2">🫁</div>
+                <p class="font-semibold" data-i18n="guide_relief_q1_title">4-7-8 Breathing</p>
+                <p class="text-sm text-gray-600" data-i18n="guide_relief_q1_desc">Inhale 4s, hold 7s, exhale 8s</p>
+              </div>
+              <div class="text-center p-3">
+                <div class="text-3xl mb-2">🚶</div>
+                <p class="font-semibold" data-i18n="guide_relief_q2_title">5-Minute Walk</p>
+                <p class="text-sm text-gray-600" data-i18n="guide_relief_q2_desc">Even around the house helps</p>
+              </div>
+              <div class="text-center p-3">
+                <div class="text-3xl mb-2">📝</div>
+                <p class="font-semibold" data-i18n="guide_relief_q3_title">Gratitude Journal</p>
+                <p class="text-sm text-gray-600" data-i18n="guide_relief_q3_desc">Write 3 good things daily</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Support Resources -->
+        <div class="mt-12 grid md:grid-cols-2 gap-6">
+          <div class="bg-primary/5 p-6 rounded-2xl border border-primary/20">
+            <h4 class="font-bold text-primary mb-3 text-lg" data-i18n="guide_res_hotlines_title">📞 Support Hotlines</h4>
+            <ul class="space-y-2">
+              <li data-i18n="guide_res_hotline1"><strong>Caregiver Action Network:</strong> 855-227-3640</li>
+              <li data-i18n="guide_res_hotline2"><strong>Alzheimer's Association:</strong> 800-272-3900</li>
+              <li data-i18n="guide_res_hotline3"><strong>National Suicide Prevention:</strong> 988</li>
+            </ul>
+          </div>
+          <div class="bg-secondary/5 p-6 rounded-2xl border border-secondary/20">
+            <h4 class="font-bold text-secondary mb-3 text-lg" data-i18n="guide_res_online_title">💻 Online Resources</h4>
+            <ul class="space-y-2">
+              <li>🔗 caregiveraction.org</li>
+              <li>🔗 alz.org/care</li>
+              <li>🔗 caregiver.org</li>
             </ul>
           </div>
         </div>
       </div>
-
-      <!-- Interactive Item 3 -->
-      <div class="col-lg-6">
-        <div class="interactive-box shadow-sm">
-          <h4 class="fw-bold d-flex align-items-center" data-i18n="guide_q3_title">
-            <span class="me-3 fs-3">😔</span> Patient is completely withdrawn
-          </h4>
-          <p class="text-muted mb-0" data-i18n="guide_q3_desc">They won't get out of bed, speak, or eat.</p>
-          <div class="hidden-advice">
-            <ul class="list-unstyled">
-              <li class="mb-2" data-i18n="guide_q3_a1">✅ <strong>Just be there:</strong> Sit quietly with them. Just your presence is supportive.</li>
-              <li class="mb-2" data-i18n="guide_q3_a2">✅ <strong>Offer small tasks:</strong> "Can you help me fold these two towels?" Set tiny, achievable goals.</li>
-              <li class="mb-2" data-i18n="guide_q3_a3">✅ <strong>Ensure basic needs:</strong> Bring water and small, easy-to-eat snacks to their bedside.</li>
-              <li class="mb-2" data-i18n="guide_q3_a4">❌ <strong>Do not demand cheer:</strong> Don't tell them they "need to get up and do something."</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Interactive Item 4 -->
-      <div class="col-lg-6">
-        <div class="interactive-box shadow-sm">
-          <h4 class="fw-bold d-flex align-items-center" data-i18n="guide_q4_title">
-            <span class="me-3 fs-3">🗣️</span> Communication Breakdown (Stroke/Aphasia)
-          </h4>
-          <p class="text-muted mb-0" data-i18n="guide_q4_desc">They are trying to speak but the words don't make sense, creating frustration.</p>
-          <div class="hidden-advice">
-            <ul class="list-unstyled">
-              <li class="mb-2" data-i18n="guide_q4_a1">✅ <strong>Use yes/no questions:</strong> "Are you hungry?" or "Does it hurt?"</li>
-              <li class="mb-2" data-i18n="guide_q4_a2">✅ <strong>Use visual aids:</strong> Point to objects or use a picture board.</li>
-              <li class="mb-2" data-i18n="guide_q4_a3">✅ <strong>Give them time:</strong> Wait patiently for their response without interrupting.</li>
-              <li class="mb-2" data-i18n="guide_q4_a4">❌ <strong>Do not pretend:</strong> Don't pretend you understand if you don't. Gently say, "I'm sorry, I didn't get that. Let's try again."</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Caregiver Stress Management Section -->
-    <div class="row mt-5 pt-4 border-top">
-      <div class="col-lg-8 mx-auto text-center">
-         <h3 class="fw-bold mb-4" style="color: var(--secondary-color)" data-i18n="guide_stress_title">Managing Your Own Stress</h3>
-         <p class="text-muted" data-i18n="guide_stress_desc">You cannot pour from an empty cup. If you burn out, you won't be able to provide care.</p>
-         
-         <div class="card mt-4 shadow-sm border-0 text-start">
-           <div class="card-body p-4">
-             <h5 data-i18n="guide_stress_rules_title">The 3 Rules of Caregiver Survival:</h5>
-             <ol class="mt-3 text-muted">
-               <li class="mb-2" data-i18n="guide_stress_r1"><strong>Accept that you are human.</strong> You will get frustrated, make mistakes, and feel tired. This is normal. Forgive yourself.</li>
-               <li class="mb-2" data-i18n="guide_stress_r2"><strong>Ask for help specifically.</strong> Don't just say "I'm overwhelmed." Tell someone: "Can you come sit with Mom for 2 hours on Thursday so I can go to the store?"</li>
-               <li class="mb-2" data-i18n="guide_stress_r3"><strong>Keep one hobby alive.</strong> Continue doing at least one thing for yourself every week, whether it's reading, gardening, or walking alone.</li>
-             </ol>
-           </div>
-         </div>
-      </div>
-    </div>
+    </section>
 
   </main>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JS -->
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="translations.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>
